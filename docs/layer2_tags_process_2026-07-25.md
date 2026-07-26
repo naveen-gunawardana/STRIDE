@@ -372,7 +372,40 @@ per-tag numbers are committed either way.
 
 ---
 
-## 7. Honest limitations
+### Round 6 — a negative result
+
+Re-ran stage 1 from scratch with all 570 gold rows mixed into the silver at loss weight 25, then
+stage-2 fine-tuned as before. **Dev macro F1 0.78 vs round 5's 0.81** — worse. Round 5 (whose
+stage-1 saw only the earlier 204 gold rows) stays the deliverable. Consistent with the round-3
+finding: gold's value comes from the *separate* fine-tuning stage, not from being mixed into the
+silver, and a ~50-minute retrain bought nothing. Recorded so nobody repeats it.
+
+## 7. Applying Layer 2 to the corpus
+
+`code/tag_corpus.py` over all 134,534 Layer-1-relevant comments, 6.0 min on the RTX 2060 →
+`data/classified/final_dataset_tagged.csv` (one probability column and one binary column per tag).
+
+**The corpus tag rates are an independent calibration check** — they were never fitted to, and they
+track the gold prevalence estimates closely:
+
+| tag | corpus % | gold estimate % |
+|---|---|---|
+| exercise_coping | 26.2 | 29 |
+| anxiety | 25.9 | 32 |
+| depression | 16.0 | 17 |
+| body_image_eating | 14.9 | 17 |
+| help_seeking | 12.2 | 14 |
+| performance_psych | 11.3 | 13 |
+| burnout_motivation | 9.7 | 12 |
+| stress_pressure | 7.8 | 12 |
+| injury_distress | 4.5 | 6 |
+| self_harm_suicide | 1.3 | 1 |
+
+Every tag runs slightly *below* its gold estimate, which is what a precision-favouring operating
+point should do; nothing is wildly mis-calibrated. The two largest gaps (`stress_pressure`,
+`anxiety`) are the two tags with the lowest recall, as expected.
+
+## 8. Honest limitations
 
 - **Single-rater gold.** All 610 labels are Claude's, applied from the written rubric. Layer 1
   established this protocol and measured it (human-vs-Claude κ = 0.81 mh / 0.86 sport on the split
@@ -386,3 +419,30 @@ per-tag numbers are committed either way.
 - **Unclear (`x`) cells are excluded per tag**, as in Layer 1. They are frequent on
   `body_image_eating` (19/330) — ordinary cutting/bulking talk shades into body-image distress with
   no clean boundary.
+- **Six of ten tags do not meet the 0.8 bar** and should not be reported as if they do. See §6.
+
+## 9. Reproducing this
+
+```bash
+# Layer 1 (already done) -> data/classified/final_dataset.csv
+.venv/Scripts/python.exe code/driver_classify.py          # 1.63M comments, ~30 min
+.venv/Scripts/python.exe code/build_final_dataset.py
+
+# Layer 2
+.venv/Scripts/python.exe code/sample_layer2.py --n 100 --out .../layer2_prop100   # gold samples
+.venv/Scripts/python.exe code/apply_labels.py <rated.csv> <spec.txt>              # record labels
+.venv/Scripts/python.exe code/tune_lexicon.py                    # score rules vs gold train+dev
+.venv/Scripts/python.exe code/layer2_silver.py                   # weak-supervision training set
+.venv/Scripts/python.exe code/split_gold.py                      # train/dev/test, leak-checked
+.venv/Scripts/python.exe code/train_layer2.py --epochs 2 --gold data/layer2/gold_train.csv \
+    --gold-weight 20 --out models/layer2_tags_s1                 # stage 1 (silver), ~55 min
+.venv/Scripts/python.exe code/train_layer2.py --init models/layer2_tags_s1 --no-silver \
+    --gold data/layer2/gold_train.csv --epochs 18 --lr 1e-5 --out models/layer2_tags
+.venv/Scripts/python.exe code/eval_layer2.py --model models/layer2_tags \
+    --gold data/layer2/gold_test.csv --dev data/layer2/gold_dev.csv
+.venv/Scripts/python.exe code/tag_corpus.py                      # apply to the corpus, ~6 min
+```
+
+Knobs: `L2_WINDOW` (lexicon co-occurrence window, default 80), `L2_THR_MODE`
+(`rate` = prevalence matching, default; `f1` = argmax-F1), `L2_BOOTSTRAP`.
+Seeds are fixed throughout (`set_seed(1)`, sampler seed 20260725, split seed 20260726).
