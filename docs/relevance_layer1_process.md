@@ -304,6 +304,38 @@ version is the deliverable.) 104 MB, gitignored — regenerate via `code/driver_
 Tune the number of rounds (or reweight the harvested negatives) to the precision/recall target, and
 note that held-out recall is only fair when the held-out rubric matches the training rubric.
 
+## 6g. Domain-adaptive pretraining (DAPT) — in progress
+
+**Hypothesis:** twitter-roberta helped because its pretraining domain (social media) matched the
+data (+0.24 F1 over roberta). The next step is to adapt the base to *this specific corpus* before
+fine-tuning.
+
+**What we're training:** the **mh** classifier, via a shared adapted base. Two stages:
+1. **Adapt the base (unsupervised MLM):** continue masked-language-model pretraining of
+   `cardiffnlp/twitter-roberta-base` on the raw matched-corpus text (~200k-comment subset of the
+   574k matched arm — full corpus would be ~6.8h on the 6GB card; subset ~2.3h and plenty for DAPT) →
+   `models/twitter-roberta-dapt`. Learns the corpus's vocabulary/register (fitness/sports slang,
+   Reddit style) with no task supervision. Script: `code/dapt_pretrain.py` (MLM, 15% masking,
+   max_len 256, fp16).
+2. **Fine-tune mh from the adapted base:** retrain the mh classifier (same labels as the balanced
+   deliverable) starting from `twitter-roberta-dapt` instead of the generic twitter-roberta.
+
+**Sport is left as-is** (already held-out F1 0.94); only the mh bottleneck is retrained.
+
+**Result: ✅ DAPT helped — clean win, no tradeoff.** Fine-tuning mh from `twitter-roberta-dapt`
+(vs. generic twitter-roberta), same labels/split:
+
+| gate | precision | recall | F1 | accuracy |
+|---|---|---|---|---|
+| balanced (generic twitter-roberta) | 0.90 | 0.80 | 0.85 | 0.87 |
+| **DAPT-mh (adapted base) — NEW DELIVERABLE** | **0.96** | **0.83** | **0.89** | **0.90** |
+
+Every metric up (+0.04 F1), still balanced. Adapting the base to the corpus's own language — on top of
+the twitter-roberta social-media match — squeezed out real gains where more labeled data had
+plateaued. Model backed up at `models/filter_relevance_mh_dapt_backup`; DAPT base at
+`models/twitter-roberta-dapt` (MLM, 200k-comment subset, ~2h). **Lesson: when labeled-data active
+learning plateaus, unsupervised domain-adaptive pretraining is the next real lever.**
+
 ## 6. Bottom line for the paper
 
 The entire ~0.68 → 0.92 jump came from **one change: matching the pretraining domain** (formal

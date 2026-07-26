@@ -105,11 +105,13 @@ def collect_run_params():
 ### Path Handling
 
 # NOTE: Model loading assumes the default pathing.
-if group in ("mh", "sport"):
-    # DOMAIN MATCH is the winning lever: twitter-roberta is pretrained on informal social-media
-    # text (much closer to Reddit than roberta's books/wiki). For `mh` this broke the ceiling:
-    # P(mh)max 0.57->1.00, gate F1 0.68->0.79. roberta-large (3x capacity) did NOT help (0.66).
-    # Applying the same fix to `sport` (previously roberta-base, P(sport)max stuck at 0.68).
+if group == "mh":
+    # DAPT experiment: fine-tune mh from the domain-adaptive-pretrained base (twitter-roberta
+    # continue-MLM'd on the matched corpus). Falls back to plain twitter-roberta if not present.
+    model_name = "models/twitter-roberta-dapt" if os.path.isdir("models/twitter-roberta-dapt") \
+                 else "cardiffnlp/twitter-roberta-base"
+elif group == "sport":
+    # sport already strong (held-out F1 0.94); keep the generic twitter-roberta base.
     model_name = "cardiffnlp/twitter-roberta-base"
 elif group in ("skin_tone", "mental_health"):
     model_name = "roberta-base"
