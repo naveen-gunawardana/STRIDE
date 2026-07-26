@@ -206,13 +206,173 @@ the leak count rather than assuming it.
 
 ---
 
-## 5. Results
+## 5. Round 1 — and the diagnostic that explained it
 
-*(filled in below as runs complete — see `experiments/trials_log.md` for the per-run table)*
+**Setup.** `twitter-roberta-dapt` + 10 sigmoid heads, masked BCE with per-tag `pos_weight`,
+2 epochs over 127,655 silver rows + 204 gold-train rows at loss weight 8. Thresholds tuned per tag
+on gold-dev, scored on the 304-row gold-test.
+
+**Result: macro F1 0.65, and only 3 of 10 tags cleared 0.8.**
+
+| | P | R | F1 |
+|---|---|---|---|
+| micro (pooled) | 0.64 | 0.71 | 0.67 |
+| macro (mean of tags) | 0.63 | 0.68 | 0.65 |
+
+### First false lead: the thresholds
+
+8 of 10 tuned thresholds came back as **exactly 0.95** — the top of the tuning grid. That looks
+like a smoking gun, so it was checked before anything else: the heads are strongly **bimodal**
+(median p ≈ 0.01, p90 ≈ 0.999), so a fixed 0.05–0.95 grid places almost no candidates near the
+actual boundary. Threshold search was replaced with **data-driven candidates** (the observed dev
+probabilities and their midpoints).
+
+**It bought +0.00 macro F1** (0.65 → 0.64). Worth recording as a negative result: the pegged
+thresholds were a *symptom* of saturation, not the cause of the low score. The problem was the
+model, not the decision rule — the same lesson the Layer-1 `P(max)` diagnostic taught.
+
+### The real diagnostic: silver/gold prevalence mismatch
+
+Comparing how often the *rules* fire against how often the *rubric* says the tag is present:
+
+| tag | silver % | gold % | ratio | test F1 |
+|---|---|---|---|---|
+| exercise_coping | 3.4 | 29 | **0.12** | 0.58 |
+| injury_distress | 1.1 | 6 | **0.19** | 0.29 |
+| performance_psych | 2.8 | 13 | **0.21** | 0.46 |
+| stress_pressure | 2.8 | 12 | **0.24** | 0.55 |
+| body_image_eating | 7.8 | 17 | 0.46 | 0.55 |
+| burnout_motivation | 7.2 | 12 | 0.60 | 0.65 |
+| anxiety | 23.9 | 32 | 0.75 | **0.87** |
+| help_seeking | 11.6 | 14 | 0.83 | 0.72 |
+| depression | 15.1 | 17 | 0.89 | **0.83** |
+| self_harm_suicide | 2.0 | 1 | 1.97 | **0.85** |
+
+The relationship is nearly monotonic. **Every tag whose rules under-fired scored badly, and every
+tag whose rules matched the rubric's prevalence scored well.** The model was not failing — it was
+faithfully learning a *narrower concept than the rubric defines*, because that is what the silver
+labels described. `exercise_coping` is the extreme case: the rules fired on 3.4% of comments for a
+theme that is genuinely present in 27% of them.
+
+**This is the Layer-2 analogue of the Layer-1 domain-match finding: the cheap diagnostic (compare
+rule prevalence to rubric prevalence, per tag) pointed straight at the cause, and no amount of
+threshold tuning or extra training would have fixed it.**
+
+### Acting on it: making the rules measurable
+
+The rules were promoted from "written once and trusted" to a **measured component**
+(`code/tune_lexicon.py`), scored as a classifier against gold train+dev (test never touched):
+
+| | rule macro P | rule macro R | rule macro F1 |
+|---|---|---|---|
+| v1 rules | — | — | **0.513** |
+| v2 rules | — | — | **0.650** |
+
+v2 rewrites the six under-firing tags as **co-occurrence patterns over shared word classes**
+(`_EX`, `_MOOD`, `_LINK`, `_COMP`, `_PSYCH`, `_EMO`) with a window allowed to cross sentence
+boundaries — v1 required both halves of the construct inside one clause, which is simply not how
+people write. Worst-case recall went from 0.11 to 0.44. The window is a swept hyperparameter:
+
+| window (chars) | 40 | 60 | **80** | 100 | 140 | 180 |
+|---|---|---|---|---|---|---|
+| rule macro F1 | 0.632 | 0.635 | **0.650** | 0.647 | 0.647 | 0.652 |
+
+80 was chosen: joint best F1 with better precision than the wider settings (weak supervision is
+hurt more by noisy positives than by missing ones).
+
+Silver prevalence after v2 — the mismatch that predicted failure is largely closed:
+
+| tag | silver v1 | silver v2 | gold |
+|---|---|---|---|
+| exercise_coping | 3.4% | **15.6%** | 29% |
+| injury_distress | 1.1% | **2.6%** | 6% |
+| performance_psych | 2.8% | **9.5%** | 13% |
+| stress_pressure | 2.8% | **9.4%** | 12% |
+| body_image_eating | 7.8% | **9.1%** | 17% |
+| burnout_motivation | 7.2% | **7.8%** | 12% |
+
+## 6. Rounds 2–5: what moved the number
+
+Every score below is on the **same 304-row gold-test set**, which never changed across rounds, so
+the comparisons are honest. Thresholds always tuned on gold-dev, never on test.
+
+| round | change | macro P | macro R | **macro F1** | micro F1 |
+|---|---|---|---|---|---|
+| 1 | silver v1 + 204 gold, argmax-F1 thresholds | 0.63 | 0.68 | **0.65** | 0.67 |
+| 1b | + data-driven threshold candidates | 0.67 | 0.62 | 0.64 | 0.67 |
+| 2 | **silver v2 rules** (co-occurrence, gold-tuned) | 0.70 | 0.67 | **0.68** | 0.70 |
+| 3 | **+ stage-2 gold fine-tune** | 0.74 | 0.70 | **0.71** | 0.73 |
+| 4 | + AL round 1 (210 labels) → 414 gold | 0.82 | 0.70 | **0.74** | 0.77 |
+| 4b | **+ prevalence-matched thresholds** | 0.79 | 0.75 | **0.77** | 0.79 |
+| 5 | + AL round 2 (156 labels) → 570 gold | 0.82 | 0.76 | **0.78** | **0.81** |
+
+Four levers mattered, in order of size:
+
+1. **Fixing the rules (r1→r2, +0.03).** Covered in §5 — the silver labels defined the task, so a
+   narrow rule taught a narrow concept.
+2. **Two-stage gold fine-tuning (r2→r3, +0.03).** 204 gold rows mixed into 121k silver rows are
+   invisible however high the loss weight; initialising from the silver model and then fine-tuning
+   on gold alone is what actually re-draws the boundary. A variant anchored with 8k silver rows to
+   prevent forgetting scored *worse* on dev (0.74 vs 0.77) — the forgetting was the point.
+3. **Active learning (r3→r5, +0.07).** Two rounds, 366 labels, drawn from the model's own
+   uncertainty rather than at random. Same lever that fixed Layer-1 over-flagging. AL rows go
+   wholly into train — they are model-selected and would flatter any test set they entered.
+4. **Prevalence-matched thresholds (+0.03).** Argmax-F1 on ~100 dev rows systematically picks
+   thresholds that are too HIGH: with few positives, raising the bar sheds false positives faster
+   than true ones, so it looked optimal on dev and cost ~0.12 macro recall on test (macro P 0.83 vs
+   R 0.69). Setting each threshold so the predicted rate matches the gold prevalence uses the one
+   quantity a small sample estimates well. `performance_psych` went 0.50 → 0.68 on this alone.
+   A bootstrap-median of the argmax was tried first and did **nothing** (0.74 → 0.74): the heads
+   are so saturated that every resample picks ~0.99. Recorded as a negative result.
+
+### Final result (round 5, gold-test n=304)
+
+| tag | thr | P | R | F1 | test n+ | clears 0.8? |
+|---|---|---|---|---|---|---|
+| anxiety | 0.65 | 0.99 | 0.87 | **0.92** | 77 | ✅ |
+| depression | 0.96 | 0.93 | 0.88 | **0.91** | 60 | ✅ |
+| burnout_motivation | 0.95 | 0.83 | 0.86 | **0.84** | 28 | ✅ |
+| self_harm_suicide | 0.98 | 0.84 | 0.84 | **0.84** | 19 | ✅ |
+| help_seeking | 0.67 | 0.82 | 0.77 | 0.79 | 35 | ✗ (R 0.77) |
+| body_image_eating | 0.72 | 0.75 | 0.75 | 0.75 | 44 | ✗ |
+| exercise_coping | 0.67 | 0.76 | 0.74 | 0.75 | 78 | ✗ |
+| stress_pressure | 0.92 | 0.83 | 0.65 | 0.73 | 31 | ✗ (R 0.65) |
+| performance_psych | 0.66 | 0.74 | 0.72 | 0.73 | 32 | ✗ |
+| injury_distress | 0.85 | 0.71 | 0.48 | 0.57 | 21 | ✗ |
+| **MICRO (pooled)** | | **0.84** | **0.78** | **0.81** | | ✅ |
+| **MACRO** | | **0.82** | **0.76** | **0.78** | | ✗ |
+
+**Where this lands against the 0.8 target.** Pooled across all tag decisions the layer clears the
+bar (micro P 0.84 / R 0.78 / F1 0.81). **Four of ten tags clear 0.8 on precision, recall and F1
+individually** — those four are production-ready. Six do not, and it would be dishonest to present
+a macro average as if it did.
+
+### Why the six fall short, and what would fix them
+
+- **`injury_distress` (0.57) is the real failure.** It is the only tag defined as a *conjunction*
+  — injury AND psychological consequence — and the corpus is full of both halves separately
+  (injury/rehab mechanics everywhere; distress everywhere). Recall 0.48 says the model misses
+  cases where the two are linked implicitly (*"haven't been able to play, so that doesn't help with
+  my depression"*). This probably needs its own rubric pass and a dedicated labeled set, not more
+  of the same.
+- **`stress_pressure` recall 0.65**: "stress" is the single most overloaded word in a fitness
+  corpus (stress fracture, stress on the joint, time under tension). The kill patterns protect
+  precision (0.83) at recall's expense.
+- **`performance_psych`, `body_image_eating`, `exercise_coping` (0.73–0.75)** are broad, fuzzy
+  constructs whose boundary the rubric itself does not draw sharply — ordinary cutting talk shades
+  into body-image distress; "the gym is my happy place" shades into coping. Labeling produced 14–19
+  `x` (unclear) cells per 330 on these, which is the honest signature of a fuzzy boundary. Sharper
+  sub-definitions in a v2 rubric would help more than more data.
+- **`help_seeking` is a near miss** (R 0.77) and would likely cross with one more AL round.
+
+**Recommended deliverable:** ship the four ≥0.8 tags as the validated Layer-2 output and mark the
+other six as provisional, exactly as Layer 1 shipped a narrowed scope and documented the rest.
+That is a decision for Naveen and Babak, not one to make silently — the full 10-tag model and its
+per-tag numbers are committed either way.
 
 ---
 
-## 6. Honest limitations
+## 7. Honest limitations
 
 - **Single-rater gold.** All 610 labels are Claude's, applied from the written rubric. Layer 1
   established this protocol and measured it (human-vs-Claude κ = 0.81 mh / 0.86 sport on the split

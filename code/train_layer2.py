@@ -101,12 +101,17 @@ def main():
     out = arg("--out", "models/layer2_tags")
     lr = arg("--lr", 2e-5, float)
     bs = arg("--batch", 16, int)
+    # --init lets stage 2 start from the silver-trained checkpoint instead of the DAPT base, so
+    # gold fine-tuning can correct the decision boundary the rules taught. 204 gold rows mixed
+    # into 121k silver rows barely moves it, however high the loss weight.
+    init = arg("--init")
+    no_silver = "--no-silver" in sys.argv
 
-    tok = AutoTokenizer.from_pretrained(BASE)
-    rows = read_labeled(silver)
+    tok = AutoTokenizer.from_pretrained(init or BASE)
+    rows = [] if no_silver else read_labeled(silver)
     w = [1.0] * len(rows)
-    print(f"[l2] base={BASE}")
-    print(f"[l2] silver rows: {len(rows):,}")
+    print(f"[l2] init={init or BASE}")
+    print(f"[l2] silver rows: {len(rows):,}" + ("  (SKIPPED --no-silver)" if no_silver else ""))
     if gold:
         for p in gold.split(","):
             if not os.path.exists(p):
@@ -135,7 +140,7 @@ def main():
     print(f"[l2] train {len(tr_rows):,} / val {len(val_rows):,}", flush=True)
 
     model = AutoModelForSequenceClassification.from_pretrained(
-        BASE, num_labels=len(TAGS), problem_type="multi_label_classification")
+        init or BASE, num_labels=len(TAGS), problem_type="multi_label_classification")
     args = TrainingArguments(
         output_dir="./results_layer2", num_train_epochs=epochs,
         per_device_train_batch_size=bs, per_device_eval_batch_size=64,

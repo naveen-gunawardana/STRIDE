@@ -35,15 +35,21 @@ def main():
     os.makedirs(OUT, exist_ok=True)
 
     prop = read(f"{RATED}/layer2_prop100_rated.csv")
-    rest = []
+    rest, al = [], []
     for p in sorted(glob.glob(f"{RATED}/*_rated.csv")):
         if "prop100" in p:
             continue
-        rest.append((os.path.basename(p), read(p)))
+        # Active-learning rows are selected BY the model (its uncertain and confidently-wrong
+        # cases), so they are not a fair sample of anything. They go wholly into train; scoring
+        # on them would measure the model against the errors it was chosen to have.
+        (al if "_al" in os.path.basename(p) else rest).append((os.path.basename(p), read(p)))
     pool = [r for _, rows in rest for r in rows]
+    al_rows = [r for _, rows in al for r in rows]
     print(f"[split] prop100 (natural prevalence) -> TEST only: {len(prop)} rows")
     for name, rows in rest:
         print(f"[split] {name}: {len(rows)} rows -> stratified across train/dev/test")
+    for name, rows in al:
+        print(f"[split] {name}: {len(rows)} rows -> TRAIN only (model-selected)")
 
     # iterative stratification: place each row into the split most starved of its rarest label
     rng = random.Random(SEED)
@@ -72,6 +78,7 @@ def main():
             have[best][t] += 1
 
     splits["test"] += prop
+    splits["train"] += al_rows
     fields = ["text"] + TAGS
     for k, rows in splits.items():
         rng.shuffle(rows)

@@ -16,6 +16,10 @@ from layer2_lexicon import TAGS
 csv.field_size_limit(2**31 - 1)
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# Bootstrap resamples for threshold selection (0 = plain argmax-F1). See tune().
+BOOTSTRAP = int(os.environ.get("L2_BOOTSTRAP", "200"))
+# "f1" = argmax-F1 on dev; "rate" = prevalence matching (default -- see tune()).
+THR_MODE = os.environ.get("L2_THR_MODE", "rate")
 
 def arg(flag, default=None, cast=None):
     if flag not in sys.argv:
@@ -56,20 +60,54 @@ def prf(y, p):
     return pr, rc, f1, int(y.sum()), tp, fp, fn
 
 def tune(P, Y):
-    """Per-tag threshold maximising F1 on the dev set (ties -> higher threshold = safer)."""
+    """Per-tag threshold maximising F1 on the dev set (ties -> higher threshold = safer).
+
+    Candidates are the observed dev probabilities themselves, not a fixed 0.05..0.95 grid.
+    The heads are strongly bimodal (median ~0.01, p90 ~0.999), so a fixed grid puts almost no
+    candidates where the decision boundary actually lies and every tag pegs at the grid edge --
+    which is what the first tuning run did (8/10 tags returned exactly 0.95).
+    """
     thr = {}
     for j, t in enumerate(TAGS):
         known = ~np.isnan(Y[:, j])
-        y = Y[known, j]
-        best, bt = -1.0, 0.5
+        y, p = Y[known, j], P[known, j]
         if y.sum() == 0:
             thr[t] = 0.5
             continue
-        for c in np.arange(0.05, 0.96, 0.01):
-            _, _, f1, *_ = prf(y, (P[known, j] >= c).astype(float))
-            if f1 >= best:
-                best, bt = f1, float(c)
-        thr[t] = round(bt, 2)
+        cands = np.unique(np.concatenate([p, [0.0, 1.0]]))
+        # midpoints between observed values -> a threshold strictly between two scores
+        cands = np.unique(np.concatenate([cands, (cands[:-1] + cands[1:]) / 2]))
+
+        def best_thr(idx):
+            yy, pp = y[idx], p[idx]
+            best, bt = -1.0, 0.5
+            for c in cands:
+                _, _, f1, *_ = prf(yy, (pp >= c).astype(float))
+                if f1 >= best:
+                    best, bt = f1, float(c)
+            return bt
+
+        if THR_MODE == "rate":
+            # Prevalence matching: set the threshold so the model predicts positive at the rate
+            # the gold says the tag actually occurs. Argmax-F1 needs a good estimate of the
+            # P/R trade-off curve, which ~9 dev positives cannot give; a prevalence estimate is
+            # far more stable at the same sample size, and it directly fixes the P>>R imbalance
+            # that argmax-F1 produced (macro P 0.83 vs R 0.69).
+            k = int(round(y.sum()))
+            thr[t] = float(f"{np.sort(p)[::-1][min(k, len(p)) - 1]:.6g}") if k else 0.5
+            continue
+        if BOOTSTRAP:
+            # A single argmax-F1 threshold on ~100 dev rows is very noisy and biases HIGH: with
+            # few positives, pushing the threshold up removes false positives faster than it
+            # loses true ones. On the first tuned run this cost ~0.12 macro recall on test.
+            # Median over bootstrap resamples is far more stable.
+            rs = np.random.RandomState(7)
+            n = len(y)
+            picks = [best_thr(rs.randint(0, n, n)) for _ in range(BOOTSTRAP)]
+            bt = float(np.median(picks))
+        else:
+            bt = best_thr(np.arange(len(y)))
+        thr[t] = float(f"{bt:.6g}")
     return thr
 
 def report(P, Y, thr, title):
