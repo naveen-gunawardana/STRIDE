@@ -1,0 +1,67 @@
+# Layer-2 gold labels -- FOCUS-2 sample, self_harm_suicide only, n=60
+# Second targeted draw: after focus-1 the tag still had only 23 gold positives across all sets,
+# too few to split into train/dev/test and still estimate recall. Note how many rows here are
+# bodybuilding slang ("suicide cut", "suicide grip") or fan hyperbole -- that is the tag's real
+# false-positive distribution and is exactly what the model needs to be evaluated against.
+# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
+1: none
+2: body
+3: body
+4: none
+5: dep,cope
+6: cope,str
+7: dep?
+8: sh,cope,dep?
+9: dep,sh,body?
+10: body,anx
+11: dep?
+12: dep,sh,cope
+13: body
+14: cope
+15: sh
+16: bur
+17: none
+18: none
+19: str
+20: str,cope
+21: dep,str,body?
+22: sh
+23: sh,body,cope,help
+24: sh,body,dep,perf?
+25: body
+26: sh,dep
+27: sh
+28: sh
+29: sh
+30: anx,body,dep?
+31: anx,help
+32: body,anx
+33: none
+34: bur,inj?
+35: sh
+36: sh,body
+37: body
+38: dep,sh
+39: bur,str
+40: sh,help,cope,dep
+41: dep,sh,cope,bur
+42: sh?,body?
+43: body
+44: dep,sh,cope,bur?
+45: dep,str,bur,anx?
+46: anx
+47: anx,str,dep,cope,sh,help
+48: none
+49: bur?,body?
+50: body
+51: perf,dep?
+52: anx,inj?
+53: cope
+54: none
+55: sh,dep,help
+56: dep,inj,cope
+57: dep,sh,body,help,cope
+58: sh,body,dep
+59: cope
+60: sh

@@ -19,6 +19,10 @@
 # reviewers can audit the FPR / kappa / classifier-performance claims.
 !data/data_relevance_ratings/**/*.csv
 !data/data_relevance_QAratings/**/*.csv
+# Layer-2 tag gold labels: the hand-labeled evaluation sets are the auditable artifact
+# behind every per-tag metric, so they are whitelisted. The *_key.csv provenance files
+# that sit beside them are still excluded by the rule further down.
+!data/data_layer2_ratings/**/*.csv
 
 # Local-only de-identification artifacts for the QA samples — NEVER commit.
 # Keys map the blinded random_id back to author/id/metadata; backups are the

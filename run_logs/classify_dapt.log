@@ -1,0 +1,571 @@
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 8730.89it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 2847.89it/s]
+[driver] models loaded on cuda | thr mh>=0.5 sp>=0.4
+===== ARM 1/3: data/classified/matched_2018_2022  (60 files) =====
+    [mh RC_2018-01.csv] 6400/8625  1123 rows/s
+    [mh RC_2018-01.csv] 8625/8625  692 rows/s
+    [sport] 3220/3220  667 rows/s
+[1:1/60] RC_2018-01.csv: 9,674 rows, 1,733 relevant (17.9%) | cum 9,674 rows 1,733 rel
+    [mh RC_2018-02.csv] 6400/9025  1440 rows/s
+    [mh RC_2018-02.csv] 9025/9025  735 rows/s
+    [sport] 3655/3655  706 rows/s
+[1:2/60] RC_2018-02.csv: 9,994 rows, 1,783 relevant (17.8%) | cum 19,668 rows 3,516 rel
+    [mh RC_2018-03.csv] 6400/11049  1710 rows/s
+    [mh RC_2018-03.csv] 11049/11049  755 rows/s
+    [sport] 4925/4925  672 rows/s
+[1:3/60] RC_2018-03.csv: 12,033 rows, 2,267 relevant (18.8%) | cum 31,701 rows 5,783 rel
+    [mh RC_2018-04.csv] 6400/9516  1525 rows/s
+    [mh RC_2018-04.csv] 9516/9516  754 rows/s
+    [sport] 3646/3646  582 rows/s
+[1:4/60] RC_2018-04.csv: 10,485 rows, 1,994 relevant (19.0%) | cum 42,186 rows 7,777 rel
+    [mh RC_2018-05.csv] 6400/11940  1891 rows/s
+    [mh RC_2018-05.csv] 11940/11940  766 rows/s
+    [sport] 4695/4695  676 rows/s
+[1:5/60] RC_2018-05.csv: 12,967 rows, 2,360 relevant (18.2%) | cum 55,153 rows 10,137 rel
+    [mh RC_2018-06.csv] 6400/10237  1534 rows/s
+    [mh RC_2018-06.csv] 10237/10237  701 rows/s
+    [sport] 4002/4002  625 rows/s
+[1:6/60] RC_2018-06.csv: 11,324 rows, 2,156 relevant (19.0%) | cum 66,477 rows 12,293 rel
+    [mh RC_2018-07.csv] 6400/10481  1581 rows/s
+    [mh RC_2018-07.csv] 10481/10481  728 rows/s
+    [sport] 4190/4190  656 rows/s
+[1:7/60] RC_2018-07.csv: 11,566 rows, 2,149 relevant (18.6%) | cum 78,043 rows 14,442 rel
+    [mh RC_2018-08.csv] 6400/8767  1173 rows/s
+    [mh RC_2018-08.csv] 8767/8767  645 rows/s
+    [sport] 4317/4317  649 rows/s
+[1:8/60] RC_2018-08.csv: 9,880 rows, 2,213 relevant (22.4%) | cum 87,923 rows 16,655 rel
+    [mh RC_2018-09.csv] 6400/6898  785 rows/s
+    [mh RC_2018-09.csv] 6898/6898  637 rows/s
+    [sport] 3203/3203  615 rows/s
+[1:9/60] RC_2018-09.csv: 7,968 rows, 1,796 relevant (22.5%) | cum 95,891 rows 18,451 rel
+    [mh RC_2018-10.csv] 6400/7683  1042 rows/s
+    [mh RC_2018-10.csv] 7683/7683  691 rows/s
+    [sport] 3077/3077  627 rows/s
+[1:10/60] RC_2018-10.csv: 8,805 rows, 1,715 relevant (19.5%) | cum 104,696 rows 20,166 rel
+    [mh RC_2018-11.csv] 6400/8992  1318 rows/s
+    [mh RC_2018-11.csv] 8992/8992  716 rows/s
+    [sport] 3594/3594  650 rows/s
+[1:11/60] RC_2018-11.csv: 10,143 rows, 2,069 relevant (20.4%) | cum 114,839 rows 22,235 rel
+    [mh RC_2018-12.csv] 6400/7652  1045 rows/s
+    [mh RC_2018-12.csv] 7652/7652  684 rows/s
+    [sport] 3014/3014  602 rows/s
+[1:12/60] RC_2018-12.csv: 8,720 rows, 1,765 relevant (20.2%) | cum 123,559 rows 24,000 rel
+    [mh RC_2019-01.csv] 6400/9281  1406 rows/s
+    [mh RC_2019-01.csv] 9281/9281  706 rows/s
+    [sport] 3437/3437  647 rows/s
+[1:13/60] RC_2019-01.csv: 10,391 rows, 1,869 relevant (18.0%) | cum 133,950 rows 25,869 rel
+    [mh RC_2019-02.csv] 6400/9561  1439 rows/s
+    [mh RC_2019-02.csv] 9561/9561  707 rows/s
+    [sport] 3437/3437  617 rows/s
+[1:14/60] RC_2019-02.csv: 10,510 rows, 1,784 relevant (17.0%) | cum 144,460 rows 27,653 rel
+    [mh RC_2019-03.csv] 6400/10223  1532 rows/s
+    [mh RC_2019-03.csv] 10223/10223  726 rows/s
+    [sport] 3888/3888  645 rows/s
+[1:15/60] RC_2019-03.csv: 11,427 rows, 2,111 relevant (18.5%) | cum 155,887 rows 29,764 rel
+    [mh RC_2019-04.csv] 6400/8840  1304 rows/s
+    [mh RC_2019-04.csv] 8840/8840  711 rows/s
+    [sport] 3315/3315  630 rows/s
+[1:16/60] RC_2019-04.csv: 9,976 rows, 1,901 relevant (19.1%) | cum 165,863 rows 31,665 rel
+    [mh RC_2019-05.csv] 6400/10415  1703 rows/s
+    [mh RC_2019-05.csv] 10415/10415  761 rows/s
+    [sport] 3837/3837  684 rows/s
+[1:17/60] RC_2019-05.csv: 11,552 rows, 1,906 relevant (16.5%) | cum 177,415 rows 33,571 rel
+    [mh RC_2019-06.csv] 6400/9870  1587 rows/s
+    [mh RC_2019-06.csv] 9870/9870  753 rows/s
+    [sport] 3498/3498  659 rows/s
+[1:18/60] RC_2019-06.csv: 10,953 rows, 1,852 relevant (16.9%) | cum 188,368 rows 35,423 rel
+    [mh RC_2019-07.csv] 6400/10433  1564 rows/s
+    [mh RC_2019-07.csv] 10433/10433  733 rows/s
+    [sport] 3992/3992  677 rows/s
+[1:19/60] RC_2019-07.csv: 11,654 rows, 2,115 relevant (18.1%) | cum 200,022 rows 37,538 rel
+    [mh RC_2019-08.csv] 6400/7285  874 rows/s
+    [mh RC_2019-08.csv] 7285/7285  634 rows/s
+    [sport] 3106/3106  586 rows/s
+[1:20/60] RC_2019-08.csv: 8,531 rows, 1,819 relevant (21.3%) | cum 208,553 rows 39,357 rel
+    [mh RC_2019-09.csv] 5713/5713  649 rows/s
+    [sport] 2308/2308  618 rows/s
+[1:21/60] RC_2019-09.csv: 6,919 rows, 1,401 relevant (20.2%) | cum 215,472 rows 40,758 rel
+    [mh RC_2019-10.csv] 6400/7630  972 rows/s
+    [mh RC_2019-10.csv] 7630/7630  655 rows/s
+    [sport] 3208/3208  634 rows/s
+[1:22/60] RC_2019-10.csv: 8,835 rows, 1,765 relevant (20.0%) | cum 224,307 rows 42,523 rel
+    [mh RC_2019-11.csv] 6400/7568  1132 rows/s
+    [mh RC_2019-11.csv] 7568/7568  735 rows/s
+    [sport] 3164/3164  671 rows/s
+[1:23/60] RC_2019-11.csv: 8,684 rows, 1,636 relevant (18.8%) | cum 232,991 rows 44,159 rel
+    [mh RC_2019-12.csv] 6400/6523  719 rows/s
+    [mh RC_2019-12.csv] 6523/6523  679 rows/s
+    [sport] 2550/2550  596 rows/s
+[1:24/60] RC_2019-12.csv: 8,095 rows, 1,529 relevant (18.9%) | cum 241,086 rows 45,688 rel
+    [mh RC_2020-01.csv] 6400/8452  1244 rows/s
+    [mh RC_2020-01.csv] 8452/8452  716 rows/s
+    [sport] 3551/3551  639 rows/s
+[1:25/60] RC_2020-01.csv: 9,913 rows, 1,992 relevant (20.1%) | cum 250,999 rows 47,680 rel
+    [mh RC_2020-02.csv] 6400/7890  1142 rows/s
+    [mh RC_2020-02.csv] 7890/7890  688 rows/s
+    [sport] 2983/2983  621 rows/s
+[1:26/60] RC_2020-02.csv: 9,124 rows, 1,678 relevant (18.4%) | cum 260,123 rows 49,358 rel
+    [mh RC_2020-03.csv] 6400/6831  792 rows/s
+    [mh RC_2020-03.csv] 6831/6831  656 rows/s
+    [sport] 3202/3202  607 rows/s
+[1:27/60] RC_2020-03.csv: 8,343 rows, 1,760 relevant (21.1%) | cum 268,466 rows 51,118 rel
+    [mh RC_2020-04.csv] 5491/5491  570 rows/s
+    [sport] 2666/2666  560 rows/s
+[1:28/60] RC_2020-04.csv: 7,018 rows, 1,724 relevant (24.6%) | cum 275,484 rows 52,842 rel
+    [mh RC_2020-05.csv] 5968/5968  593 rows/s
+    [sport] 2685/2685  579 rows/s
+[1:29/60] RC_2020-05.csv: 7,309 rows, 1,669 relevant (22.8%) | cum 282,793 rows 54,511 rel
+    [mh RC_2020-06.csv] 5738/5738  574 rows/s
+    [sport] 2551/2551  561 rows/s
+[1:30/60] RC_2020-06.csv: 7,030 rows, 1,555 relevant (22.1%) | cum 289,823 rows 56,066 rel
+    [mh RC_2020-07.csv] 6289/6289  614 rows/s
+    [sport] 3056/3056  586 rows/s
+[1:31/60] RC_2020-07.csv: 7,646 rows, 1,832 relevant (24.0%) | cum 297,469 rows 57,898 rel
+    [mh RC_2020-08.csv] 6400/9268  1416 rows/s
+    [mh RC_2020-08.csv] 9268/9268  719 rows/s
+    [sport] 3800/3800  628 rows/s
+[1:32/60] RC_2020-08.csv: 10,454 rows, 2,093 relevant (20.0%) | cum 307,923 rows 59,991 rel
+    [mh RC_2020-09.csv] 6400/9303  1542 rows/s
+    [mh RC_2020-09.csv] 9303/9303  764 rows/s
+    [sport] 3450/3450  655 rows/s
+[1:33/60] RC_2020-09.csv: 10,523 rows, 1,885 relevant (17.9%) | cum 318,446 rows 61,876 rel
+    [mh RC_2020-10.csv] 6400/7041  891 rows/s
+    [mh RC_2020-10.csv] 7041/7041  675 rows/s
+    [sport] 2909/2909  602 rows/s
+[1:34/60] RC_2020-10.csv: 8,286 rows, 1,710 relevant (20.6%) | cum 326,732 rows 63,586 rel
+    [mh RC_2020-11.csv] 6134/6134  678 rows/s
+    [sport] 2557/2557  613 rows/s
+[1:35/60] RC_2020-11.csv: 7,310 rows, 1,458 relevant (19.9%) | cum 334,042 rows 65,044 rel
+    [mh RC_2020-12.csv] 6400/7129  939 rows/s
+    [mh RC_2020-12.csv] 7129/7129  693 rows/s
+    [sport] 2837/2837  604 rows/s
+[1:36/60] RC_2020-12.csv: 8,371 rows, 1,647 relevant (19.7%) | cum 342,413 rows 66,691 rel
+    [mh RC_2021-01.csv] 6400/8986  1328 rows/s
+    [mh RC_2021-01.csv] 8986/8986  722 rows/s
+    [sport] 3792/3792  643 rows/s
+[1:37/60] RC_2021-01.csv: 10,314 rows, 2,187 relevant (21.2%) | cum 352,727 rows 68,878 rel
+    [mh RC_2021-02.csv] 6400/7524  1039 rows/s
+    [mh RC_2021-02.csv] 7524/7524  704 rows/s
+    [sport] 3179/3179  616 rows/s
+[1:38/60] RC_2021-02.csv: 8,717 rows, 2,047 relevant (23.5%) | cum 361,444 rows 70,925 rel
+    [mh RC_2021-03.csv] 6400/8851  1356 rows/s
+    [mh RC_2021-03.csv] 8851/8851  733 rows/s
+    [sport] 3473/3473  654 rows/s
+[1:39/60] RC_2021-03.csv: 10,194 rows, 1,935 relevant (19.0%) | cum 371,638 rows 72,860 rel
+    [mh RC_2021-04.csv] 6400/6819  827 rows/s
+    [mh RC_2021-04.csv] 6819/6819  690 rows/s
+    [sport] 2844/2844  642 rows/s
+[1:40/60] RC_2021-04.csv: 8,086 rows, 1,737 relevant (21.5%) | cum 379,724 rows 74,597 rel
+    [mh RC_2021-05.csv] 6400/8617  1271 rows/s
+    [mh RC_2021-05.csv] 8617/8617  726 rows/s
+    [sport] 3503/3503  653 rows/s
+[1:41/60] RC_2021-05.csv: 9,992 rows, 2,105 relevant (21.1%) | cum 389,716 rows 76,702 rel
+    [mh RC_2021-06.csv] 6400/12497  1999 rows/s
+    [mh RC_2021-06.csv] 12497/12497  810 rows/s
+    [sport] 4332/4332  683 rows/s
+[1:42/60] RC_2021-06.csv: 13,797 rows, 2,488 relevant (18.0%) | cum 403,513 rows 79,190 rel
+    [mh RC_2021-07.csv] 6400/10659  1603 rows/s
+    [mh RC_2021-07.csv] 10659/10659  739 rows/s
+    [sport] 4383/4383  668 rows/s
+[1:43/60] RC_2021-07.csv: 11,856 rows, 2,502 relevant (21.1%) | cum 415,369 rows 81,692 rel
+    [mh RC_2021-08.csv] 6400/8096  1079 rows/s
+    [mh RC_2021-08.csv] 8096/8096  677 rows/s
+    [sport] 3429/3429  615 rows/s
+[1:44/60] RC_2021-08.csv: 9,220 rows, 2,057 relevant (22.3%) | cum 424,589 rows 83,749 rel
+    [mh RC_2021-09.csv] 6400/6671  778 rows/s
+    [mh RC_2021-09.csv] 6671/6671  681 rows/s
+    [sport] 2754/2754  630 rows/s
+[1:45/60] RC_2021-09.csv: 7,782 rows, 1,652 relevant (21.2%) | cum 432,371 rows 85,401 rel
+    [mh RC_2021-10.csv] 6400/8362  1188 rows/s
+    [mh RC_2021-10.csv] 8362/8362  709 rows/s
+    [sport] 3767/3767  684 rows/s
+[1:46/60] RC_2021-10.csv: 9,434 rows, 2,132 relevant (22.6%) | cum 441,805 rows 87,533 rel
+    [mh RC_2021-11.csv] 6400/10291  1496 rows/s
+    [mh RC_2021-11.csv] 10291/10291  741 rows/s
+    [sport] 4298/4298  696 rows/s
+[1:47/60] RC_2021-11.csv: 11,510 rows, 2,407 relevant (20.9%) | cum 453,315 rows 89,940 rel
+    [mh RC_2021-12.csv] 6400/6617  802 rows/s
+    [mh RC_2021-12.csv] 6617/6617  717 rows/s
+    [sport] 2681/2681  662 rows/s
+[1:48/60] RC_2021-12.csv: 7,850 rows, 1,559 relevant (19.9%) | cum 461,165 rows 91,499 rel
+    [mh RC_2022-01.csv] 6400/9617  1492 rows/s
+    [mh RC_2022-01.csv] 9617/9617  739 rows/s
+    [sport] 3668/3668  676 rows/s
+[1:49/60] RC_2022-01.csv: 10,894 rows, 2,185 relevant (20.1%) | cum 472,059 rows 93,684 rel
+    [mh RC_2022-02.csv] 6400/11410  1746 rows/s
+    [mh RC_2022-02.csv] 11410/11410  782 rows/s
+    [sport] 4368/4368  720 rows/s
+[1:50/60] RC_2022-02.csv: 12,494 rows, 2,289 relevant (18.3%) | cum 484,553 rows 95,973 rel
+    [mh RC_2022-03.csv] 6400/10216  1675 rows/s
+    [mh RC_2022-03.csv] 10216/10216  777 rows/s
+    [sport] 3830/3830  729 rows/s
+[1:51/60] RC_2022-03.csv: 11,436 rows, 2,096 relevant (18.3%) | cum 495,989 rows 98,069 rel
+    [mh RC_2022-04.csv] 6400/10166  1654 rows/s
+    [mh RC_2022-04.csv] 10166/10166  788 rows/s
+    [sport] 3590/3590  731 rows/s
+[1:52/60] RC_2022-04.csv: 11,363 rows, 2,057 relevant (18.1%) | cum 507,352 rows 100,126 rel
+    [mh RC_2022-05.csv] 6400/9546  1606 rows/s
+    [mh RC_2022-05.csv] 9546/9546  786 rows/s
+    [sport] 3537/3537  686 rows/s
+[1:53/60] RC_2022-05.csv: 10,785 rows, 1,829 relevant (17.0%) | cum 518,137 rows 101,955 rel
+    [mh RC_2022-06.csv] 6400/8266  1234 rows/s
+    [mh RC_2022-06.csv] 8266/8266  741 rows/s
+    [sport] 3120/3120  668 rows/s
+[1:54/60] RC_2022-06.csv: 9,298 rows, 1,915 relevant (20.6%) | cum 527,435 rows 103,870 rel
+    [mh RC_2022-07.csv] 6400/7851  1095 rows/s
+    [mh RC_2022-07.csv] 7851/7851  696 rows/s
+    [sport] 2840/2840  635 rows/s
+[1:55/60] RC_2022-07.csv: 8,917 rows, 1,680 relevant (18.8%) | cum 536,352 rows 105,550 rel
+    [mh RC_2022-08.csv] 6400/6552  693 rows/s
+    [mh RC_2022-08.csv] 6552/6552  650 rows/s
+    [sport] 2824/2824  612 rows/s
+[1:56/60] RC_2022-08.csv: 7,652 rows, 1,843 relevant (24.1%) | cum 544,004 rows 107,393 rel
+    [mh RC_2022-09.csv] 6026/6026  674 rows/s
+    [sport] 2577/2577  637 rows/s
+[1:57/60] RC_2022-09.csv: 7,264 rows, 1,598 relevant (22.0%) | cum 551,268 rows 108,991 rel
+    [mh RC_2022-10.csv] 6400/7026  945 rows/s
+    [mh RC_2022-10.csv] 7026/7026  728 rows/s
+    [sport] 3162/3162  710 rows/s
+[1:58/60] RC_2022-10.csv: 8,104 rows, 1,626 relevant (20.1%) | cum 559,372 rows 110,617 rel
+    [mh RC_2022-11.csv] 6400/6733  876 rows/s
+    [mh RC_2022-11.csv] 6733/6733  747 rows/s
+    [sport] 2492/2492  673 rows/s
+[1:59/60] RC_2022-11.csv: 7,970 rows, 1,398 relevant (17.5%) | cum 567,342 rows 112,015 rel
+    [mh RC_2022-12.csv] 5500/5500  697 rows/s
+    [sport] 2284/2284  636 rows/s
+[1:60/60] RC_2022-12.csv: 7,297 rows, 1,383 relevant (19.0%) | cum 574,639 rows 113,398 rel
+===== ARM 2/3: data/classified/matched_2023  (12 files) =====
+    [mh RC_2023-01.csv] 6400/6955  920 rows/s
+    [mh RC_2023-01.csv] 6955/6955  718 rows/s
+    [sport] 2555/2555  633 rows/s
+[2:1/12] RC_2023-01.csv: 8,328 rows, 1,600 relevant (19.2%) | cum 582,967 rows 114,998 rel
+    [mh RC_2023-02.csv] 6400/7559  1172 rows/s
+    [mh RC_2023-02.csv] 7559/7559  755 rows/s
+    [sport] 2658/2658  656 rows/s
+[2:2/12] RC_2023-02.csv: 8,469 rows, 1,491 relevant (17.6%) | cum 591,436 rows 116,489 rel
+    [mh RC_2023-03.csv] 6400/11000  1789 rows/s
+    [mh RC_2023-03.csv] 11000/11000  793 rows/s
+    [sport] 4732/4732  751 rows/s
+[2:3/12] RC_2023-03.csv: 12,023 rows, 2,077 relevant (17.3%) | cum 603,459 rows 118,566 rel
+    [mh RC_2023-04.csv] 6400/7475  1239 rows/s
+    [mh RC_2023-04.csv] 7475/7475  799 rows/s
+    [sport] 2535/2535  690 rows/s
+[2:4/12] RC_2023-04.csv: 8,528 rows, 1,419 relevant (16.6%) | cum 611,987 rows 119,985 rel
+    [mh RC_2023-05.csv] 6400/9083  1630 rows/s
+    [mh RC_2023-05.csv] 9083/9083  831 rows/s
+    [sport] 2948/2948  733 rows/s
+[2:5/12] RC_2023-05.csv: 10,084 rows, 1,455 relevant (14.4%) | cum 622,071 rows 121,440 rel
+    [mh RC_2023-06.csv] 5445/5445  708 rows/s
+    [sport] 1946/1946  622 rows/s
+[2:6/12] RC_2023-06.csv: 6,585 rows, 1,097 relevant (16.7%) | cum 628,656 rows 122,537 rel
+    [mh RC_2023-07.csv] 6400/6755  781 rows/s
+    [mh RC_2023-07.csv] 6755/6755  665 rows/s
+    [sport] 2468/2468  572 rows/s
+[2:7/12] RC_2023-07.csv: 7,672 rows, 1,458 relevant (19.0%) | cum 636,328 rows 123,995 rel
+    [mh RC_2023-08.csv] 4844/4844  648 rows/s
+    [sport] 1805/1805  563 rows/s
+[2:8/12] RC_2023-08.csv: 5,978 rows, 1,223 relevant (20.5%) | cum 642,306 rows 125,218 rel
+    [mh RC_2023-09.csv] 5111/5111  681 rows/s
+    [sport] 1856/1856  606 rows/s
+[2:9/12] RC_2023-09.csv: 6,285 rows, 1,105 relevant (17.6%) | cum 648,591 rows 126,323 rel
+    [mh RC_2023-10.csv] 5211/5211  705 rows/s
+    [sport] 2001/2001  635 rows/s
+[2:10/12] RC_2023-10.csv: 6,547 rows, 1,139 relevant (17.4%) | cum 655,138 rows 127,462 rel
+    [mh RC_2023-11.csv] 5329/5329  730 rows/s
+    [sport] 1815/1815  653 rows/s
+[2:11/12] RC_2023-11.csv: 6,564 rows, 1,065 relevant (16.2%) | cum 661,702 rows 128,527 rel
+    [mh RC_2023-12.csv] 6251/6251  760 rows/s
+    [sport] 2538/2538  687 rows/s
+[2:12/12] RC_2023-12.csv: 7,408 rows, 1,307 relevant (17.6%) | cum 669,110 rows 129,834 rel
+===== ARM 3/3: data/classified/baseline_2018_2022  (60 files) =====
+    [mh RC_2018-01.csv] 6400/16390  2678 rows/s
+    [mh RC_2018-01.csv] 12800/16390  2362 rows/s
+    [mh RC_2018-01.csv] 16390/16390  1598 rows/s
+    [sport] 408/408  1328 rows/s
+[3:1/60] RC_2018-01.csv: 17,274 rows, 72 relevant (0.4%) | cum 686,384 rows 129,906 rel
+    [mh RC_2018-02.csv] 6400/17307  2622 rows/s
+    [mh RC_2018-02.csv] 12800/17307  2422 rows/s
+    [mh RC_2018-02.csv] 17307/17307  1579 rows/s
+    [sport] 431/431  1247 rows/s
+[3:2/60] RC_2018-02.csv: 18,159 rows, 98 relevant (0.5%) | cum 704,543 rows 130,004 rel
+    [mh RC_2018-03.csv] 6400/19781  2714 rows/s
+    [mh RC_2018-03.csv] 12800/19781  2580 rows/s
+    [mh RC_2018-03.csv] 19200/19781  1863 rows/s
+    [mh RC_2018-03.csv] 19781/19781  1613 rows/s
+    [sport] 490/490  1402 rows/s
+[3:3/60] RC_2018-03.csv: 20,669 rows, 105 relevant (0.5%) | cum 725,212 rows 130,109 rel
+    [mh RC_2018-04.csv] 6400/19057  2649 rows/s
+    [mh RC_2018-04.csv] 12800/19057  2426 rows/s
+    [mh RC_2018-04.csv] 19057/19057  1581 rows/s
+    [sport] 456/456  1283 rows/s
+[3:4/60] RC_2018-04.csv: 19,936 rows, 116 relevant (0.6%) | cum 745,148 rows 130,225 rel
+    [mh RC_2018-05.csv] 6400/21790  2696 rows/s
+    [mh RC_2018-05.csv] 12800/21790  2619 rows/s
+    [mh RC_2018-05.csv] 19200/21790  2162 rows/s
+    [mh RC_2018-05.csv] 21790/21790  1624 rows/s
+    [sport] 491/491  1409 rows/s
+[3:5/60] RC_2018-05.csv: 22,708 rows, 102 relevant (0.4%) | cum 767,856 rows 130,327 rel
+    [mh RC_2018-06.csv] 6400/19044  2628 rows/s
+    [mh RC_2018-06.csv] 12800/19044  2450 rows/s
+    [mh RC_2018-06.csv] 19044/19044  1514 rows/s
+    [sport] 467/467  1150 rows/s
+[3:6/60] RC_2018-06.csv: 19,993 rows, 86 relevant (0.4%) | cum 787,849 rows 130,413 rel
+    [mh RC_2018-07.csv] 6400/18602  2652 rows/s
+    [mh RC_2018-07.csv] 12800/18602  2440 rows/s
+    [mh RC_2018-07.csv] 18602/18602  1553 rows/s
+    [sport] 464/464  1446 rows/s
+[3:7/60] RC_2018-07.csv: 19,565 rows, 88 relevant (0.4%) | cum 807,414 rows 130,501 rel
+    [mh RC_2018-08.csv] 6400/10169  2432 rows/s
+    [mh RC_2018-08.csv] 10169/10169  1350 rows/s
+    [sport] 289/289  795 rows/s
+[3:8/60] RC_2018-08.csv: 11,139 rows, 72 relevant (0.6%) | cum 818,553 rows 130,573 rel
+    [mh RC_2018-09.csv] 6400/8287  2174 rows/s
+    [mh RC_2018-09.csv] 8287/8287  1367 rows/s
+    [sport] 257/257  1056 rows/s
+[3:9/60] RC_2018-09.csv: 9,160 rows, 57 relevant (0.6%) | cum 827,713 rows 130,630 rel
+    [mh RC_2018-10.csv] 6400/12091  2612 rows/s
+    [mh RC_2018-10.csv] 12091/12091  1506 rows/s
+    [sport] 338/338  1055 rows/s
+[3:10/60] RC_2018-10.csv: 13,049 rows, 87 relevant (0.7%) | cum 840,762 rows 130,717 rel
+    [mh RC_2018-11.csv] 6400/14694  2643 rows/s
+    [mh RC_2018-11.csv] 12800/14694  2158 rows/s
+    [mh RC_2018-11.csv] 14694/14694  1602 rows/s
+    [sport] 357/357  1197 rows/s
+[3:11/60] RC_2018-11.csv: 15,687 rows, 84 relevant (0.5%) | cum 856,449 rows 130,801 rel
+    [mh RC_2018-12.csv] 6400/13315  2626 rows/s
+    [mh RC_2018-12.csv] 12800/13315  1811 rows/s
+    [mh RC_2018-12.csv] 13315/13315  1524 rows/s
+    [sport] 328/328  1024 rows/s
+[3:12/60] RC_2018-12.csv: 14,360 rows, 73 relevant (0.5%) | cum 870,809 rows 130,874 rel
+    [mh RC_2019-01.csv] 6400/18248  2713 rows/s
+    [mh RC_2019-01.csv] 12800/18248  2459 rows/s
+    [mh RC_2019-01.csv] 18248/18248  1549 rows/s
+    [sport] 383/383  1077 rows/s
+[3:13/60] RC_2019-01.csv: 19,308 rows, 79 relevant (0.4%) | cum 890,117 rows 130,953 rel
+    [mh RC_2019-02.csv] 6400/19574  2659 rows/s
+    [mh RC_2019-02.csv] 12800/19574  2541 rows/s
+    [mh RC_2019-02.csv] 19200/19574  1789 rows/s
+    [mh RC_2019-02.csv] 19574/19574  1622 rows/s
+    [sport] 405/405  1209 rows/s
+[3:14/60] RC_2019-02.csv: 20,514 rows, 91 relevant (0.4%) | cum 910,631 rows 131,044 rel
+    [mh RC_2019-03.csv] 6400/20748  2648 rows/s
+    [mh RC_2019-03.csv] 12800/20748  2582 rows/s
+    [mh RC_2019-03.csv] 19200/20748  2004 rows/s
+    [mh RC_2019-03.csv] 20748/20748  1601 rows/s
+    [sport] 502/502  1185 rows/s
+[3:15/60] RC_2019-03.csv: 21,848 rows, 101 relevant (0.5%) | cum 932,479 rows 131,145 rel
+    [mh RC_2019-04.csv] 6400/18742  2670 rows/s
+    [mh RC_2019-04.csv] 12800/18742  2517 rows/s
+    [mh RC_2019-04.csv] 18742/18742  1638 rows/s
+    [sport] 381/381  1233 rows/s
+[3:16/60] RC_2019-04.csv: 19,841 rows, 72 relevant (0.4%) | cum 952,320 rows 131,217 rel
+    [mh RC_2019-05.csv] 6400/21403  2691 rows/s
+    [mh RC_2019-05.csv] 12800/21403  2641 rows/s
+    [mh RC_2019-05.csv] 19200/21403  2158 rows/s
+    [mh RC_2019-05.csv] 21403/21403  1664 rows/s
+    [sport] 502/502  1315 rows/s
+[3:17/60] RC_2019-05.csv: 22,521 rows, 86 relevant (0.4%) | cum 974,841 rows 131,303 rel
+    [mh RC_2019-06.csv] 6400/22564  2704 rows/s
+    [mh RC_2019-06.csv] 12800/22564  2655 rows/s
+    [mh RC_2019-06.csv] 19200/22564  2261 rows/s
+    [mh RC_2019-06.csv] 22564/22564  1666 rows/s
+    [sport] 472/472  1323 rows/s
+[3:18/60] RC_2019-06.csv: 23,652 rows, 83 relevant (0.4%) | cum 998,493 rows 131,386 rel
+    [mh RC_2019-07.csv] 6400/20117  2725 rows/s
+    [mh RC_2019-07.csv] 12800/20117  2558 rows/s
+    [mh RC_2019-07.csv] 19200/20117  1851 rows/s
+    [mh RC_2019-07.csv] 20117/20117  1570 rows/s
+    [sport] 457/457  1508 rows/s
+[3:19/60] RC_2019-07.csv: 21,295 rows, 77 relevant (0.4%) | cum 1,019,788 rows 131,463 rel
+    [mh RC_2019-08.csv] 6400/9758  2365 rows/s
+    [mh RC_2019-08.csv] 9758/9758  1356 rows/s
+    [sport] 299/299  1039 rows/s
+[3:20/60] RC_2019-08.csv: 10,894 rows, 85 relevant (0.8%) | cum 1,030,682 rows 131,548 rel
+    [mh RC_2019-09.csv] 6400/7984  2170 rows/s
+    [mh RC_2019-09.csv] 7984/7984  1362 rows/s
+    [sport] 181/181  758 rows/s
+[3:21/60] RC_2019-09.csv: 9,090 rows, 61 relevant (0.7%) | cum 1,039,772 rows 131,609 rel
+    [mh RC_2019-10.csv] 6400/12338  2646 rows/s
+    [mh RC_2019-10.csv] 12338/12338  1476 rows/s
+    [sport] 299/299  1208 rows/s
+[3:22/60] RC_2019-10.csv: 13,524 rows, 52 relevant (0.4%) | cum 1,053,296 rows 131,661 rel
+    [mh RC_2019-11.csv] 6400/13664  2677 rows/s
+    [mh RC_2019-11.csv] 12800/13664  2011 rows/s
+    [mh RC_2019-11.csv] 13664/13664  1619 rows/s
+    [sport] 286/286  1050 rows/s
+[3:23/60] RC_2019-11.csv: 14,840 rows, 63 relevant (0.4%) | cum 1,068,136 rows 131,724 rel
+    [mh RC_2019-12.csv] 6400/12918  2632 rows/s
+    [mh RC_2019-12.csv] 12800/12918  1639 rows/s
+    [mh RC_2019-12.csv] 12918/12918  1541 rows/s
+    [sport] 262/262  1245 rows/s
+[3:24/60] RC_2019-12.csv: 14,195 rows, 56 relevant (0.4%) | cum 1,082,331 rows 131,780 rel
+    [mh RC_2020-01.csv] 6400/15949  2645 rows/s
+    [mh RC_2020-01.csv] 12800/15949  2295 rows/s
+    [mh RC_2020-01.csv] 15949/15949  1554 rows/s
+    [sport] 419/419  1276 rows/s
+[3:25/60] RC_2020-01.csv: 17,242 rows, 81 relevant (0.5%) | cum 1,099,573 rows 131,861 rel
+    [mh RC_2020-02.csv] 6400/16367  2663 rows/s
+    [mh RC_2020-02.csv] 12800/16367  2342 rows/s
+    [mh RC_2020-02.csv] 16367/16367  1561 rows/s
+    [sport] 380/380  1156 rows/s
+[3:26/60] RC_2020-02.csv: 17,542 rows, 86 relevant (0.5%) | cum 1,117,115 rows 131,947 rel
+    [mh RC_2020-03.csv] 6400/11103  2488 rows/s
+    [mh RC_2020-03.csv] 11103/11103  1498 rows/s
+    [sport] 384/384  1019 rows/s
+[3:27/60] RC_2020-03.csv: 12,422 rows, 83 relevant (0.7%) | cum 1,129,537 rows 132,030 rel
+    [mh RC_2020-04.csv] 6400/6717  1496 rows/s
+    [mh RC_2020-04.csv] 6717/6717  1235 rows/s
+    [sport] 184/184  743 rows/s
+[3:28/60] RC_2020-04.csv: 7,907 rows, 58 relevant (0.7%) | cum 1,137,444 rows 132,088 rel
+    [mh RC_2020-05.csv] 6400/7312  1820 rows/s
+    [mh RC_2020-05.csv] 7312/7312  1271 rows/s
+    [sport] 218/218  759 rows/s
+[3:29/60] RC_2020-05.csv: 8,589 rows, 77 relevant (0.9%) | cum 1,146,033 rows 132,165 rel
+    [mh RC_2020-06.csv] 6400/6722  1575 rows/s
+    [mh RC_2020-06.csv] 6722/6722  1282 rows/s
+    [sport] 222/222  719 rows/s
+[3:30/60] RC_2020-06.csv: 7,912 rows, 64 relevant (0.8%) | cum 1,153,945 rows 132,229 rel
+    [mh RC_2020-07.csv] 6400/8397  2110 rows/s
+    [mh RC_2020-07.csv] 8397/8397  1305 rows/s
+    [sport] 284/284  836 rows/s
+[3:31/60] RC_2020-07.csv: 9,625 rows, 69 relevant (0.7%) | cum 1,163,570 rows 132,298 rel
+    [mh RC_2020-08.csv] 6400/17619  2578 rows/s
+    [mh RC_2020-08.csv] 12800/17619  2391 rows/s
+    [mh RC_2020-08.csv] 17619/17619  1547 rows/s
+    [sport] 414/414  1153 rows/s
+[3:32/60] RC_2020-08.csv: 18,747 rows, 87 relevant (0.5%) | cum 1,182,317 rows 132,385 rel
+    [mh RC_2020-09.csv] 6400/20751  2662 rows/s
+    [mh RC_2020-09.csv] 12800/20751  2591 rows/s
+    [mh RC_2020-09.csv] 19200/20751  2080 rows/s
+    [mh RC_2020-09.csv] 20751/20751  1687 rows/s
+    [sport] 385/385  1039 rows/s
+[3:33/60] RC_2020-09.csv: 21,848 rows, 85 relevant (0.4%) | cum 1,204,165 rows 132,470 rel
+    [mh RC_2020-10.csv] 6400/12292  2583 rows/s
+    [mh RC_2020-10.csv] 12292/12292  1470 rows/s
+    [sport] 284/284  1095 rows/s
+[3:34/60] RC_2020-10.csv: 13,443 rows, 74 relevant (0.6%) | cum 1,217,608 rows 132,544 rel
+    [mh RC_2020-11.csv] 6400/10384  2566 rows/s
+    [mh RC_2020-11.csv] 10384/10384  1510 rows/s
+    [sport] 223/223  872 rows/s
+[3:35/60] RC_2020-11.csv: 11,599 rows, 55 relevant (0.5%) | cum 1,229,207 rows 132,599 rel
+    [mh RC_2020-12.csv] 6400/13447  2600 rows/s
+    [mh RC_2020-12.csv] 12800/13447  1838 rows/s
+    [mh RC_2020-12.csv] 13447/13447  1517 rows/s
+    [sport] 294/294  1301 rows/s
+[3:36/60] RC_2020-12.csv: 14,662 rows, 67 relevant (0.5%) | cum 1,243,869 rows 132,666 rel
+    [mh RC_2021-01.csv] 6400/14052  2650 rows/s
+    [mh RC_2021-01.csv] 12800/14052  2037 rows/s
+    [mh RC_2021-01.csv] 14052/14052  1551 rows/s
+    [sport] 321/321  1093 rows/s
+[3:37/60] RC_2021-01.csv: 15,297 rows, 85 relevant (0.6%) | cum 1,259,166 rows 132,751 rel
+    [mh RC_2021-02.csv] 6400/14036  2640 rows/s
+    [mh RC_2021-02.csv] 12800/14036  2008 rows/s
+    [mh RC_2021-02.csv] 14036/14036  1565 rows/s
+    [sport] 330/330  1188 rows/s
+[3:38/60] RC_2021-02.csv: 15,135 rows, 84 relevant (0.6%) | cum 1,274,301 rows 132,835 rel
+    [mh RC_2021-03.csv] 6400/18719  2705 rows/s
+    [mh RC_2021-03.csv] 12800/18719  2528 rows/s
+    [mh RC_2021-03.csv] 18719/18719  1602 rows/s
+    [sport] 455/455  1391 rows/s
+[3:39/60] RC_2021-03.csv: 19,887 rows, 93 relevant (0.5%) | cum 1,294,188 rows 132,928 rel
+    [mh RC_2021-04.csv] 6400/12407  2641 rows/s
+    [mh RC_2021-04.csv] 12407/12407  1496 rows/s
+    [sport] 266/266  1165 rows/s
+[3:40/60] RC_2021-04.csv: 13,493 rows, 62 relevant (0.5%) | cum 1,307,681 rows 132,990 rel
+    [mh RC_2021-05.csv] 6400/16685  2700 rows/s
+    [mh RC_2021-05.csv] 12800/16685  2408 rows/s
+    [mh RC_2021-05.csv] 16685/16685  1605 rows/s
+    [sport] 339/339  1145 rows/s
+[3:41/60] RC_2021-05.csv: 17,824 rows, 98 relevant (0.5%) | cum 1,325,505 rows 133,088 rel
+    [mh RC_2021-06.csv] 6400/26013  2690 rows/s
+    [mh RC_2021-06.csv] 12800/26013  2650 rows/s
+    [mh RC_2021-06.csv] 19200/26013  2468 rows/s
+    [mh RC_2021-06.csv] 25600/26013  1851 rows/s
+    [mh RC_2021-06.csv] 26013/26013  1691 rows/s
+    [sport] 505/505  1293 rows/s
+[3:42/60] RC_2021-06.csv: 27,082 rows, 114 relevant (0.4%) | cum 1,352,587 rows 133,202 rel
+    [mh RC_2021-07.csv] 6400/18214  2735 rows/s
+    [mh RC_2021-07.csv] 12800/18214  2497 rows/s
+    [mh RC_2021-07.csv] 18214/18214  1597 rows/s
+    [sport] 424/424  1449 rows/s
+[3:43/60] RC_2021-07.csv: 19,342 rows, 88 relevant (0.5%) | cum 1,371,929 rows 133,290 rel
+    [mh RC_2021-08.csv] 6400/13582  2670 rows/s
+    [mh RC_2021-08.csv] 12800/13582  1870 rows/s
+    [mh RC_2021-08.csv] 13582/13582  1517 rows/s
+    [sport] 314/314  977 rows/s
+[3:44/60] RC_2021-08.csv: 14,723 rows, 89 relevant (0.6%) | cum 1,386,652 rows 133,379 rel
+    [mh RC_2021-09.csv] 6400/9378  2328 rows/s
+    [mh RC_2021-09.csv] 9378/9378  1374 rows/s
+    [sport] 259/259  841 rows/s
+[3:45/60] RC_2021-09.csv: 10,426 rows, 70 relevant (0.7%) | cum 1,397,078 rows 133,449 rel
+    [mh RC_2021-10.csv] 6400/11027  2439 rows/s
+    [mh RC_2021-10.csv] 11027/11027  1365 rows/s
+    [sport] 304/304  1113 rows/s
+[3:46/60] RC_2021-10.csv: 12,221 rows, 78 relevant (0.6%) | cum 1,409,299 rows 133,527 rel
+    [mh RC_2021-11.csv] 6400/12627  2617 rows/s
+    [mh RC_2021-11.csv] 12627/12627  1535 rows/s
+    [sport] 280/280  966 rows/s
+[3:47/60] RC_2021-11.csv: 13,855 rows, 67 relevant (0.5%) | cum 1,423,154 rows 133,594 rel
+    [mh RC_2021-12.csv] 6400/11809  2621 rows/s
+    [mh RC_2021-12.csv] 11809/11809  1520 rows/s
+    [sport] 270/270  1110 rows/s
+[3:48/60] RC_2021-12.csv: 13,020 rows, 79 relevant (0.6%) | cum 1,436,174 rows 133,673 rel
+    [mh RC_2022-01.csv] 6400/17307  2686 rows/s
+    [mh RC_2022-01.csv] 12800/17307  2402 rows/s
+    [mh RC_2022-01.csv] 17307/17307  1532 rows/s
+    [sport] 438/438  1277 rows/s
+[3:49/60] RC_2022-01.csv: 18,524 rows, 101 relevant (0.5%) | cum 1,454,698 rows 133,774 rel
+    [mh RC_2022-02.csv] 6400/15677  2682 rows/s
+    [mh RC_2022-02.csv] 12800/15677  2288 rows/s
+    [mh RC_2022-02.csv] 15677/15677  1581 rows/s
+    [sport] 346/346  1130 rows/s
+[3:50/60] RC_2022-02.csv: 16,690 rows, 77 relevant (0.5%) | cum 1,471,388 rows 133,851 rel
+    [mh RC_2022-03.csv] 6400/19373  2654 rows/s
+    [mh RC_2022-03.csv] 12800/19373  2550 rows/s
+    [mh RC_2022-03.csv] 19200/19373  1753 rows/s
+    [mh RC_2022-03.csv] 19373/19373  1622 rows/s
+    [sport] 387/387  1341 rows/s
+[3:51/60] RC_2022-03.csv: 20,466 rows, 82 relevant (0.4%) | cum 1,491,854 rows 133,933 rel
+    [mh RC_2022-04.csv] 6400/20205  2702 rows/s
+    [mh RC_2022-04.csv] 12800/20205  2595 rows/s
+    [mh RC_2022-04.csv] 19200/20205  1942 rows/s
+    [mh RC_2022-04.csv] 20205/20205  1614 rows/s
+    [sport] 358/358  1338 rows/s
+[3:52/60] RC_2022-04.csv: 21,229 rows, 82 relevant (0.4%) | cum 1,513,083 rows 134,015 rel
+    [mh RC_2022-05.csv] 6400/20864  2658 rows/s
+    [mh RC_2022-05.csv] 12800/20864  2608 rows/s
+    [mh RC_2022-05.csv] 19200/20864  2116 rows/s
+    [mh RC_2022-05.csv] 20864/20864  1692 rows/s
+    [sport] 395/395  1346 rows/s
+[3:53/60] RC_2022-05.csv: 22,014 rows, 91 relevant (0.4%) | cum 1,535,097 rows 134,106 rel
+    [mh RC_2022-06.csv] 6400/15909  2691 rows/s
+    [mh RC_2022-06.csv] 12800/15909  2282 rows/s
+    [mh RC_2022-06.csv] 15909/15909  1564 rows/s
+    [sport] 339/339  1192 rows/s
+[3:54/60] RC_2022-06.csv: 16,908 rows, 79 relevant (0.5%) | cum 1,552,005 rows 134,185 rel
+    [mh RC_2022-07.csv] 6400/14768  2656 rows/s
+    [mh RC_2022-07.csv] 12800/14768  2003 rows/s
+    [mh RC_2022-07.csv] 14768/14768  1448 rows/s
+    [sport] 273/273  1303 rows/s
+[3:55/60] RC_2022-07.csv: 15,726 rows, 57 relevant (0.4%) | cum 1,567,731 rows 134,242 rel
+    [mh RC_2022-08.csv] 6400/9738  2392 rows/s
+    [mh RC_2022-08.csv] 9738/9738  1364 rows/s
+    [sport] 223/223  786 rows/s
+[3:56/60] RC_2022-08.csv: 10,735 rows, 70 relevant (0.7%) | cum 1,578,466 rows 134,312 rel
+    [mh RC_2022-09.csv] 6400/8857  2363 rows/s
+    [mh RC_2022-09.csv] 8857/8857  1434 rows/s
+    [sport] 226/226  1050 rows/s
+[3:57/60] RC_2022-09.csv: 9,901 rows, 50 relevant (0.5%) | cum 1,588,367 rows 134,362 rel
+    [mh RC_2022-10.csv] 6400/10617  2584 rows/s
+    [mh RC_2022-10.csv] 10617/10617  1493 rows/s
+    [sport] 244/244  928 rows/s
+[3:58/60] RC_2022-10.csv: 11,732 rows, 61 relevant (0.5%) | cum 1,600,099 rows 134,423 rel
+    [mh RC_2022-11.csv] 6400/12498  2519 rows/s
+    [mh RC_2022-11.csv] 12498/12498  1563 rows/s
+    [sport] 289/289  1147 rows/s
+[3:59/60] RC_2022-11.csv: 13,492 rows, 61 relevant (0.5%) | cum 1,613,591 rows 134,484 rel
+    [mh RC_2022-12.csv] 6400/10774  2609 rows/s
+    [mh RC_2022-12.csv] 10774/10774  1506 rows/s
+    [sport] 197/197  1245 rows/s
+[3:60/60] RC_2022-12.csv: 11,786 rows, 50 relevant (0.4%) | cum 1,625,377 rows 134,534 rel
+===== ALL ARMS DONE: 1,625,377 rows -> 134,534 relevant in 29.7 min =====
