@@ -44,6 +44,16 @@ def gold_texts():
                 t = (r.get("text") or "").strip()
                 if t:
                     txt.add(t)
+    # v3: the enriched gold rows are labeled via workflow and live only in the gold split files
+    # (not the *_rated.csv). Exclude every text present in the actual splits so nothing leaks.
+    for sp in ("train", "dev", "test"):
+        p = f"data/layer2/gold_{sp}.csv"
+        if os.path.exists(p):
+            with open(p, encoding="utf-8-sig", newline="") as fh:
+                for r in csv.DictReader(fh):
+                    t = (r.get("text") or "").strip()
+                    if t:
+                        txt.add(t)
     return txt
 
 def main():

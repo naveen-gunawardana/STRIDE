@@ -446,3 +446,134 @@ point should do; nothing is wildly mis-calibrated. The two largest gaps (`stress
 Knobs: `L2_WINDOW` (lexicon co-occurrence window, default 80), `L2_THR_MODE`
 (`rate` = prevalence matching, default; `f1` = argmax-F1), `L2_BOOTSTRAP`.
 Seeds are fixed throughout (`set_seed(1)`, sampler seed 20260725, split seed 20260726).
+
+---
+
+## 10. v3 — expanding to 17 tags (2026-07-26, per Babak)
+
+**Meeting directive.** Babak asked to *"refactor the data and retrain Layer 2 to allow for multiple
+tags,"* add more label categories (*"could reduce forcing labels on it"*), weight by frequency, and
+keep it multi-label. Two of those were already in place — the model is `BCEWithLogits` with 10
+independent sigmoid heads (`problem_type="multi_label_classification"`, so a comment already gets 0/1/
+many tags) and `pos_weight` per tag is already `#neg/#pos` capped. **The substantive change is adding
+tags** so off-taxonomy themes aren't forced into a wrong head or dropped.
+
+### The 7 new tags (10 → 17)
+
+Added from the v1 cut-list plus one gap labeling had exposed: `substance_use`,
+`loneliness_isolation`, `sleep`, `trauma_ptsd`, `adhd_neurodivergence`, `identity_retirement`,
+`exercise_dependence`. Rubric definitions written in the same style (construct, ✓/✗, negation→NO) —
+see `docs/layer2_tag_rubric.md`.
+
+**Prevalence probe first** (silver HP-fire rate over 20k matched comments), to size the labeling and
+flag the rare ones — the same discipline as the rest of Layer 2:
+
+| tag | HP-fire % | verdict |
+|---|---|---|
+| adhd_neurodivergence | 3.2 | trainable |
+| sleep | 2.9 | trainable |
+| loneliness_isolation | 2.3 | trainable |
+| trauma_ptsd | 1.9 | trainable |
+| substance_use | 1.7 | trainable |
+| exercise_dependence | 0.4 | ⚠ ultra-rare — enrich, low confidence |
+| identity_retirement | 0.1 | ⚠ ultra-rare — original cut for exactly this |
+
+### Rules — same abstention design, new fitness wrong-sense guards
+
+Each new tag gets HP / HR / KILLS in `layer2_lexicon.py`, and each new KILL targets the dominant
+wrong sense a fitness corpus throws at it — the single most important part:
+`substance_use` ✗ *drink **water** / pre-workout / caffeine*; `loneliness_isolation` ✗ *training
+**alone** / solo*; `sleep` ✗ *sleep for **recovery** / rest day*; `trauma_ptsd` ✗ *"ptsd from missing
+a **free throw**"*; `adhd_neurodivergence` ✗ *"**add** weight / a set"*; `exercise_dependence` ✗
+*"addicted to the **endorphins**"*. Behaviourally unit-tested before any training: all 7 anchor
+positives fire, all wrong-senses correctly abstain (killed cues abstain — only *negated* cues become
+hard 0s, by design).
+
+### Gold labeling — merge + enrich (two blinded workflows)
+
+- **A:** the 7 new tags labeled on the **976 existing gold** comments (17-agent workflow) → merged
+  with their existing 10-tag labels, keeping their existing train/dev/test split. Preserves all prior
+  labels; no re-labeling of the 10.
+- **B:** **382 enriched candidates** (HP-cue hits for the new tags, drawn disjoint from gold) labeled
+  for **all 17 tags** (7-agent workflow), then iterative-stratified into the splits so the new tags
+  have test positives.
+
+Result — new 17-tag gold: **793 train / 141 dev / 424 test** (976 + 382). New-tag **test** positives:
+substance 25, loneliness 21, sleep 23, trauma 22, adhd 20, exercise_dep 22 — and **identity_retirement
+just 7** (enriched draw found only 27 in 79k comments; its estimate will have a wide CI, as flagged).
+
+### Silver regen — a leak the merge introduced, and the fix
+
+The enriched gold rows live only in the split CSVs, not the `*_rated.csv` files `layer2_silver.py`
+read to exclude gold — so they would have leaked into silver. Fixed `gold_texts()` to also exclude
+every text in `gold_{train,dev,test}.csv` (excluded 1,360 gold texts vs 976 ids). *Same lesson as the
+original Layer-2 leak and the Layer-1 split-cache bug: whenever the gold set changes, re-verify the
+exclusion covers the new rows, by text not just id.*
+
+*(Retrain metrics + corpus re-application appended after training — see trials L2-v3.)*
+
+## 11. v3b — round 2: broadening the weak rules, and a regex-hang that had to be fixed first (2026-08-10)
+
+Round 1 (§10) left `substance_use`, `trauma_ptsd`, `exercise_dependence` under-firing (prevalence
+ratio 0.25 / 0.36 / 0.07). The known lever is to broaden their rules into **co-occurrence patterns** —
+a term class near a context class within a window — exactly what lifted the original six weak tags in
+v2. Also, per directive, `identity_retirement` was dropped (0.1% prevalence, unmeasurable) → **16 tags**.
+
+### The co-occurrence rules, and the catastrophic-backtracking hang
+
+First attempt wired the broadening straight into the high-precision regex, the same shape v2 used:
+
+```
+A[\s\S]{0,W}B | B[\s\S]{0,W}A          # term-class A within W chars of context-class B
+```
+
+Silver regeneration then **stalled dead at ~25k comments** — one core pegged at 100% for minutes on a
+single comment, no progress. This is classic **catastrophic regex backtracking**: a greedy
+variable-length gap between two large alternations, scanned by `finditer` over a long *unpunctuated*
+Reddit comment, explores exponentially many ways to fail. The v2 tags never triggered it on this
+corpus, but the new, larger word-classes did.
+
+Two fixes, in order:
+1. **Lazy quantifier** (`[\s\S]{0,W}?`) — helped (got past 25k) but a worse comment still pegged a
+   core. Necessary, not sufficient.
+2. **Moved the proximity test out of regex entirely** (`_cooc()` in `code/layer2_lexicon.py`). Each
+   word-class is matched independently (linear, no gap → no backtracking), then a plain Python check
+   asks whether any A-span and B-span lie within `W` chars. This *cannot* backtrack. Verified: a full
+   130k-comment scan runs steadily with **zero** comments over 0.1 s, and silver regeneration completes
+   end-to-end. The boolean semantics are identical to the old regex (co-occurrence exists ⇔ same
+   answer); wrong-sense KILLS still apply to the matched span.
+
+*Lesson for the paper's methods notes: proximity/co-occurrence over user text belongs in code, not in a
+variable-gap regex — the gap is where the engine backtracks. Keep each regex class anchored and simple.*
+
+### Silver, retrain, results
+
+- **Silver regenerated**, 16 tags, broadened rules: 128,195 rows, **0 leakage** across train/dev/test.
+  The three target tags' silver prevalence rose to substance 3.7 % (was 1.5), exercise_dependence
+  3.9 % (was 0.4), trauma 2.1 % (implicit trauma stays hard) — closing most of the gap to gold.
+- **Retrained** two-stage (silver+gold → gold-only fine-tune), batch 32 (per Babak: larger batch,
+  within GPU memory), model `models/layer2_tags_v3b`.
+- **Inter-rater κ** (the standing gap): a second independent blinded rater pass over 160 stratified
+  gold-test records, per-tag Cohen's κ via `code/metrics_interrater_l2.py` → **pooled 0.879, mean
+  0.862, 13/16 tags ≥ 0.8** — on par with Layer-1's 0.81/0.86. This is model-vs-model rubric
+  reliability; a human pass on the committed blinded files is the remaining step.
+- **Joint eval** added (`code/eval_joint.py`): runs the real cascade (gate → tags) on relevant gold +
+  control-arm negatives, so the pipeline number is measured, not composed.
+
+### Round-2 result and the final release (2026-08-10)
+
+The broadening was tried three ways — v3b (batch 32), v3c (batch 16), v3d (broaden exercise_dependence
+only) — and **all three net-regressed** against round-1 `v3`. The extra silver positives are noisier,
+and the shared encoder passes that noise to tags that were never broadened (body_image 0.81→0.63,
+injury 0.66→0.47). This is the mirror image of the v2 story: broadening helped the *original* six tags
+because their rules were high-precision-but-narrow; the v3 new-tag rules were already broad, so
+widening them only added false positives. **Negative result — round-1 `v3` ships.**
+
+Applying an **F1 ≥ 0.65 release bar** to `v3` dropped four tags (exercise_coping 0.63, substance_use
+0.63, trauma_ptsd 0.48, exercise_dependence 0.20), leaving **12 released tags**: micro P/R/F1
+0.81/0.84/**0.83**, macro 0.79/0.83/0.81, five fully validated. End-to-end cascade (measured, not
+composed) micro-F1 **0.80** with the gate rejecting 97% of labelled-irrelevant comments. The released
+corpus (`code/tag_corpus_final.py`) is `final_dataset_tagged.csv` = **105,206** matched comments
+carrying ≥1 of the 12 tags, with the control arm split out to `control_baseline.csv`. Note `v3` is a
+17-head model (identity_retirement at index 15); the tagger maps heads via `thresholds.json` so the
+12 kept tags (all at indices ≤14) align exactly. Full numbers in `docs/AMHC_paper_draft_v2.md`.

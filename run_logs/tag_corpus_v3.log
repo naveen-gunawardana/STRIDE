@@ -1,0 +1,28 @@
+[tag] model models/layer2_tags_v3 | thresholds {'depression': 0.871478, 'anxiety': 0.654549, 'stress_pressure': 0.866626, 'burnout_motivation': 0.881762, 'performance_psych': 0.71747, 'body_image_eating': 0.669308, 'injury_distress': 0.58007, 'self_harm_suicide': 0.963095, 'help_seeking': 0.738265, 'exercise_coping': 0.795732, 'substance_use': 0.979349, 'loneliness_isolation': 0.964695, 'sleep': 0.930275, 'trauma_ptsd': 0.966795, 'adhd_neurodivergence': 0.979984, 'exercise_dependence': 0.297533}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 2861.11it/s]
+  ... 20,032 tagged  144 rows/s
+  ... 40,000 tagged  144 rows/s
+  ... 60,032 tagged  144 rows/s
+  ... 80,000 tagged  144 rows/s
+  ... 100,032 tagged  144 rows/s
+  ... 120,000 tagged  144 rows/s
+
+[tag] 134,534 comments tagged -> data/classified/final_dataset_tagged_v3.csv  (15.6 min)
+
+  tag                        count   % of relevant
+  depression                23,243    17.3%
+  anxiety                   35,914    26.7%
+  stress_pressure           11,213     8.3%
+  burnout_motivation        11,909     8.9%
+  performance_psych         13,889    10.3%
+  body_image_eating         20,991    15.6%
+  injury_distress            8,248     6.1%
+  self_harm_suicide          1,940     1.4%
+  help_seeking              17,617    13.1%
+  exercise_coping           30,881    23.0%
+  substance_use              2,472     1.8%
+  loneliness_isolation       2,265     1.7%
+  sleep                      3,689     2.7%
+  trauma_ptsd                1,618     1.2%
+  adhd_neurodivergence       2,628     2.0%
+  exercise_dependence        3,258     2.4%

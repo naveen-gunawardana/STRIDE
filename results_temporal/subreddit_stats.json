@@ -1,0 +1,171 @@
+{
+  "n_relevant": 129834,
+  "n_subreddits": 19,
+  "top4": [
+    "xxfitness",
+    "running",
+    "Fitness",
+    "nba"
+  ],
+  "top4_share_pct": 74.74313353975076,
+  "composition": [
+    {
+      "subreddit": "xxfitness",
+      "n": 29532,
+      "pct": 22.745967928277647,
+      "cum_pct": 22.745967928277647
+    },
+    {
+      "subreddit": "running",
+      "n": 24805,
+      "pct": 19.105165056918835,
+      "cum_pct": 41.85113298519648
+    },
+    {
+      "subreddit": "Fitness",
+      "n": 23314,
+      "pct": 17.956775574964958,
+      "cum_pct": 59.80790856016144
+    },
+    {
+      "subreddit": "nba",
+      "n": 19391,
+      "pct": 14.93522497958932,
+      "cum_pct": 74.74313353975076
+    },
+    {
+      "subreddit": "bodybuilding",
+      "n": 8306,
+      "pct": 6.397399756612289,
+      "cum_pct": 81.14053329636305
+    },
+    {
+      "subreddit": "tennis",
+      "n": 5304,
+      "pct": 4.085216507232312,
+      "cum_pct": 85.22574980359536
+    },
+    {
+      "subreddit": "weightroom",
+      "n": 3333,
+      "pct": 2.5671241739451918,
+      "cum_pct": 87.79287397754055
+    },
+    {
+      "subreddit": "crossfit",
+      "n": 2866,
+      "pct": 2.2074341081688926,
+      "cum_pct": 90.00030808570945
+    },
+    {
+      "subreddit": "Swimming",
+      "n": 2520,
+      "pct": 1.9409399694995149,
+      "cum_pct": 91.94124805520896
+    },
+    {
+      "subreddit": "triathlon",
+      "n": 2058,
+      "pct": 1.5851009750912703,
+      "cum_pct": 93.52634903030022
+    },
+    {
+      "subreddit": "Gymnastics",
+      "n": 2035,
+      "pct": 1.5673860467982192,
+      "cum_pct": 95.09373507709846
+    },
+    {
+      "subreddit": "climbing",
+      "n": 1816,
+      "pct": 1.398709120877428,
+      "cum_pct": 96.49244419797589
+    },
+    {
+      "subreddit": "CollegeBasketball",
+      "n": 1684,
+      "pct": 1.2970408367607869,
+      "cum_pct": 97.78948503473667
+    },
+    {
+      "subreddit": "Rowing",
+      "n": 970,
+      "pct": 0.747107845402591,
+      "cum_pct": 98.53659288013925
+    },
+    {
+      "subreddit": "Basketball",
+      "n": 518,
+      "pct": 0.3989709937304558,
+      "cum_pct": 98.93556387386971
+    },
+    {
+      "subreddit": "trackandfield",
+      "n": 487,
+      "pct": 0.3750943512485173,
+      "cum_pct": 99.31065822511823
+    },
+    {
+      "subreddit": "BasketballTips",
+      "n": 410,
+      "pct": 0.3157878521804766,
+      "cum_pct": 99.62644607729871
+    },
+    {
+      "subreddit": "volleyball",
+      "n": 374,
+      "pct": 0.28806013833048355,
+      "cum_pct": 99.91450621562919
+    },
+    {
+      "subreddit": "sportspsychology",
+      "n": 111,
+      "pct": 0.08549378437081195,
+      "cum_pct": 100.0
+    }
+  ],
+  "drift": {
+    "xxfitness": {
+      "start_pct": 29.41796056575761,
+      "end_pct": 18.361835159297822,
+      "delta_pp": -11.056125406459788
+    },
+    "running": {
+      "start_pct": 9.380001562647685,
+      "end_pct": 12.48455326662076,
+      "delta_pp": 3.1045517039730743
+    },
+    "Fitness": {
+      "start_pct": 25.938223902088442,
+      "end_pct": 14.390919329775157,
+      "delta_pp": -11.547304572313285
+    },
+    "nba": {
+      "start_pct": 16.835710771635227,
+      "end_pct": 16.68628785217653,
+      "delta_pp": -0.14942291945869712
+    },
+    "bodybuilding": {
+      "start_pct": 8.815460000362679,
+      "end_pct": 3.9366308522645657,
+      "delta_pp": -4.878829148098113
+    },
+    "tennis": {
+      "start_pct": 1.3233655746078696,
+      "end_pct": 6.427283999515875,
+      "delta_pp": 5.103918424908005
+    },
+    "weightroom": {
+      "start_pct": 2.1091650874842047,
+      "end_pct": 2.202984683513694,
+      "delta_pp": 0.0938195960294892
+    },
+    "crossfit": {
+      "start_pct": 1.5093359387790917,
+      "end_pct": 4.417988925446678,
+      "delta_pp": 2.908652986667586
+    }
+  },
+  "effective_subs_start": 2.571428571428571,
+  "effective_subs_end": 6.74918454308009
+}

@@ -58,3 +58,8 @@ data/data_relevance_ratings/comments/_backup_*/
 # raw corpus dump (uploaded locally, ~1GB) and classifier outputs
 /comments/
 data/classified/
+
+# Aggregated temporal-analysis outputs. These are month/subreddit-level COUNTS only
+# (no comment text, authors, or ids) and are the auditable artifact behind every
+# figure and trend in the paper, so they are whitelisted past the blanket *.csv rule.
+!results_temporal/*.csv

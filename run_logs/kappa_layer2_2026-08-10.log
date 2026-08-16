@@ -1,0 +1,26 @@
+[kappa-l2] rater A: 160 records | rater B: 160 records (from 5 batch files)
+[kappa-l2] scoring 160 shared records
+
+  tag                      kappa  raw-agr  A pos  B pos note
+  depression               0.901    0.969     30     33
+  anxiety                  0.908    0.969     36     33
+  stress_pressure          0.582    0.938     12     14  weak (<0.6)
+  burnout_motivation       0.647    0.963     10      8
+  performance_psych        0.805    0.975     13      9
+  body_image_eating        0.953    0.988     25     25
+  injury_distress          0.870    0.981     14     11
+  self_harm_suicide        0.882    0.988      8     10
+  help_seeking             0.930    0.981     24     27
+  exercise_coping          0.824    0.938     37     37
+  substance_use            0.960    0.994     13     14
+  loneliness_isolation     0.814    0.981      9      8
+  sleep                    0.922    0.988     14     14
+  trauma_ptsd              0.870    0.981     13     12
+  adhd_neurodivergence     0.960    0.994     13     14
+  exercise_dependence      0.960    0.994     13     14
+
+  POOLED (all tag decisions)   0.879    0.976
+  MEAN of per-tag kappas   0.862   (over 16 tags with both classes present)
+
+  Interpretation: >=0.8 almost perfect, 0.6-0.8 substantial, 0.4-0.6 moderate.
+  Layer-1 relevance kappa was 0.81 / 0.86 for reference.

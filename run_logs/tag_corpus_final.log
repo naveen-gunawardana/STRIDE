@@ -1,0 +1,28 @@
+[final] model models/layer2_tags_v3 on cuda | heads 17 | keeping 12 tags
+[final] dropped (F1<0.65): ['exercise_coping', 'substance_use', 'trauma_ptsd', 'exercise_dependence']
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 3011.63it/s]
+  20,480 scanned, 17,312 kept, 3,168 dropped(0-tag) (53s)
+  40,960 scanned, 34,627 kept, 6,333 dropped(0-tag) (107s)
+  61,440 scanned, 51,299 kept, 10,141 dropped(0-tag) (162s)
+  81,920 scanned, 67,593 kept, 14,327 dropped(0-tag) (216s)
+  102,400 scanned, 83,453 kept, 18,947 dropped(0-tag) (271s)
+  122,880 scanned, 99,690 kept, 23,190 dropped(0-tag) (325s)
+
+[final] scanned 134,534 rows
+[final] FINAL CORPUS (matched + >=1 kept tag): 105,206 -> data/classified/final_dataset_tagged.csv
+[final] dropped matched rows with 0 kept tags: 24,628
+[final] control baseline rows: 4,700 -> data/classified/control_baseline.csv
+
+  per-tag positives across all scanned:
+    anxiety                 35,914
+    depression              23,243
+    self_harm_suicide        1,941
+    burnout_motivation      11,908
+    help_seeking            17,617
+    loneliness_isolation     2,265
+    body_image_eating       20,991
+    sleep                    3,689
+    stress_pressure         11,214
+    adhd_neurodivergence     2,628
+    performance_psych       13,889
+    injury_distress          8,248

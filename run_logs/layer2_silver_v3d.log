@@ -1,0 +1,28 @@
+[silver] excluding 976 gold comment ids and 1,360 gold texts
+  ... 25,000 scanned, 20,159 with >=1 rule positive
+  ... 50,000 scanned, 40,386 with >=1 rule positive
+  ... 75,000 scanned, 60,250 with >=1 rule positive
+  ... 100,000 scanned, 79,306 with >=1 rule positive
+  ... 125,000 scanned, 98,982 with >=1 rule positive
+
+[silver] scanned 128,195 relevant comments
+[silver] 101,532 have >=1 rule positive; kept 26,663 of 26,663 all-negative comments
+[silver] wrote 128,195 rows -> data/layer2/silver.csv
+
+  tag                         pos       neg   abstain   pos% of relevant
+  depression               19,339    65,483    43,373   15.09%
+  anxiety                  30,741    58,772    38,682   23.98%
+  stress_pressure          12,081    81,033    35,081    9.42%
+  burnout_motivation       10,026    70,224    47,945    7.82%
+  performance_psych        12,164    46,460    69,571    9.49%
+  body_image_eating        11,601    76,913    39,681    9.05%
+  injury_distress           3,293   104,950    19,952    2.57%
+  self_harm_suicide         2,528   115,185    10,482    1.97%
+  help_seeking             14,811    74,998    38,386   11.55%
+  exercise_coping          20,059    37,690    70,446   15.65%
+  substance_use             4,723   108,009    15,463    3.68%
+  loneliness_isolation      2,932   108,162    17,101    2.29%
+  sleep                     3,571   102,759    21,865    2.79%
+  trauma_ptsd               2,708   115,950     9,537    2.11%
+  adhd_neurodivergence      3,813   113,869    10,513    2.97%
+  exercise_dependence       4,995   108,304    14,896    3.90%

@@ -1,0 +1,31 @@
+[eval] model models/layer2_tags_v3d | gold data/layer2/gold_test.csv: 424 rows
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 7455.19it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 6431.51it/s]
+[eval] tuned thresholds on dev data/layer2/gold_dev.csv (141 rows): {'depression': 0.905443, 'anxiety': 0.439079, 'stress_pressure': 0.919599, 'burnout_motivation': 0.94197, 'performance_psych': 0.859271, 'body_image_eating': 0.957589, 'injury_distress': 0.959507, 'self_harm_suicide': 0.996885, 'help_seeking': 0.858536, 'exercise_coping': 0.872473, 'substance_use': 0.978558, 'loneliness_isolation': 0.979365, 'sleep': 0.97143, 'trauma_ptsd': 0.950057, 'adhd_neurodivergence': 0.995821, 'exercise_dependence': 0.947036}
+
+===== gold_test.csv @ models/layer2_tags_v3d =====
+  tag                      thr      P      R     F1    n+    TP    FP    FN
+  depression              0.91   0.86   0.88   0.87    74    65    11     9
+  anxiety                 0.44   0.89   0.92   0.91    92    85    10     7
+  stress_pressure         0.92   0.70   0.79   0.74    33    26    11     7  <-- below 0.8
+  burnout_motivation      0.94   0.72   0.79   0.75    29    23     9     6  <-- below 0.8
+  performance_psych       0.86   0.67   0.61   0.63    33    20    10    13  <-- below 0.8
+  body_image_eating       0.96   0.73   0.55   0.63    58    32    12    26  <-- below 0.8
+  injury_distress         0.96   0.59   0.38   0.47    26    10     7    16  <-- below 0.8
+  self_harm_suicide       1.00   0.88   0.74   0.80    19    14     2     5  <-- below 0.8
+  help_seeking            0.86   0.82   0.87   0.84    46    40     9     6
+  exercise_coping         0.87   0.67   0.62   0.64    93    58    29    35  <-- below 0.8
+  substance_use           0.98   0.68   0.52   0.59    25    13     6    12  <-- below 0.8
+  loneliness_isolation    0.98   0.89   0.81   0.85    21    17     2     4
+  sleep                   0.97   0.83   0.87   0.85    23    20     4     3
+  trauma_ptsd             0.95   0.69   0.50   0.58    22    11     5    11  <-- below 0.8
+  adhd_neurodivergence    1.00   0.87   0.65   0.74    20    13     2     7  <-- below 0.8
+  exercise_dependence     0.95   0.70   0.73   0.71    22    16     7     6  <-- below 0.8
+
+  MICRO (pooled)                 0.77   0.73   0.75
+  MACRO (mean of tags)           0.76   0.70   0.73
+
+  weakest tag: injury_distress  (P 0.59 / R 0.38 / F1 0.47)
+  ALL TAGS >= 0.8 on P, R and F1: NO
+
+[eval] thresholds -> models/layer2_tags_v3d/thresholds.json

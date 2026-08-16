@@ -134,6 +134,62 @@ help or making mood worse, and mental-health-motivated training decisions.
 
 ---
 
+---
+
+## v3 tags (added 2026-07-26, per Babak — reduce forcing off-taxonomy themes)
+
+### `substance_use`
+Alcohol or drugs used to cope, or a substance problem/addiction: drinking to cope/numb, alcoholism,
+"drink every night," sobriety/relapse, addicted to alcohol/drugs/pills, self-medicating, numbing
+with substances.
+- ✓ *"i started drinking every night just to get through the depression"*
+- ✓ *"6 months sober now, the gym replaced the bottle"*
+- ✗ **Drinking water / hydration / pre-workout / caffeine / protein** — the dominant wrong sense in a
+  fitness corpus (*"drink enough water"*). Not substance use.
+- ✗ "addicted to the gym/endorphins" → that is `exercise_dependence`, not this.
+
+### `loneliness_isolation`
+Feeling lonely, isolated, socially disconnected, no friends, no one to talk to, alienated, withdrawn.
+- ✓ *"since i stopped competing i feel so alone, nobody to talk to"*
+- ✗ **Training alone / solo / by myself** — that is just solo exercise, not loneliness.
+- ✗ "leave me alone," "alone time" (wanting space) with no distress.
+
+### `sleep`
+Sleep as a mental-health problem: insomnia, can't sleep, lying awake, racing thoughts at night,
+nightmares, sleep anxiety/deprivation affecting the person.
+- ✓ *"i have insomnia and lie awake all night with my mind racing"*
+- ✗ **Recovery / rest-day / "sleep for muscle growth" / generic "get enough sleep"** advice — the
+  fitness sense of sleep. Not a MH sleep problem.
+
+### `trauma_ptsd`
+PTSD, trauma, flashbacks, abuse/assault, being haunted by a past event, complex trauma.
+- ✓ *"i have ptsd from the accident and it still haunts me"*
+- ✗ **Joke/hyperbole PTSD** — *"ptsd from missing that free throw," "ptsd from double rims."*
+- ✗ "triggered" in the gym/muscle sense.
+
+### `adhd_neurodivergence`
+ADHD, autism, OCD, dyslexia, being neurodivergent, executive dysfunction, sensory overload, on the
+spectrum. (Passing mentions count, per rule 3: *"can't focus, thanks adhd"*.)
+- ✓ *"my adhd makes sticking to a routine impossible"*
+- ✗ **"add" as in add weight / add a set / add reps** — not ADHD.
+
+### `identity_retirement`
+Identity tied to sport, or the loss of identity/purpose from stopping, retiring, or being unable to
+compete: "who am i without it," "running was my whole identity," struggling to adjust after retirement.
+- ✓ *"since retiring i've felt lost — running was my whole identity"*
+- ✗ Ordinary "took a break" with no identity/self dimension. *(Rare in this recreational corpus.)*
+
+### `exercise_dependence`
+Compulsive/addictive exercise: can't take a rest day, guilt/anxiety when missing a workout,
+overexercising, training through injury compulsively, exercise "taking over my life," punishing
+oneself with exercise. **The unhealthy compulsion** — distinct from `exercise_coping` (healthy outlet).
+- ✓ *"i'm addicted to the gym and feel guilty if i skip even one day"*
+- ✓ *"my climbing addiction is crippling my life"*
+- ✗ **"addicted to the endorphins/feeling/grind"** as positive hype with no compulsion/harm.
+- ✗ Healthy "exercise keeps me sane" → that is `exercise_coping`.
+
+---
+
 ## Tags considered and **excluded from v1** (recorded, not forgotten)
 
 `substance_use`, `loneliness_isolation`, `sleep`, `trauma_ptsd`, `adhd_neurodivergence`,
