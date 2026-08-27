@@ -153,15 +153,11 @@ Planned distribution: the corpus through HuggingFace Datasets, the classifiers t
 Models, and a coding-free HuggingFace Space that runs the cascade over uploaded text for
 practitioners who do not write code. **URLs are not yet live.**
 
-Two questions are open and both are blocking:
-
-1. **ISAAC Data Use Agreement.** STRIDE is built with the ISAAC pipeline and inherits its DUA, which
-   restricts redistribution of raw comment text to third parties. The release may therefore carry
-   platform identifiers plus derived labels rather than text, with text access routed through the
-   ISAAC institutional channel. To be confirmed with the corpus owners.
-2. **Sensitive-content controls.** 2,115 comments carry `self_harm_suicide`. Gated access for that
-   subset, identifiers-plus-labels in place of text, or paraphrase-level anonymisation — to be
-   decided alongside (1).
+One question is open and it is blocking. **The ISAAC Data Use Agreement:** STRIDE is built with
+the ISAAC pipeline and inherits its DUA, which restricts redistribution of raw comment text to
+third parties. The release may therefore carry platform identifiers plus derived labels rather
+than text, with text access routed through the ISAAC institutional channel. To be confirmed with
+the corpus owners.
 
 ## Ethics
 
