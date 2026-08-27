@@ -1,19 +1,18 @@
 """Build the FINAL released AMHC corpus: tag the gate-relevant comments with the chosen Layer-2
 model, keep only the tags that passed the quality bar, and filter to comments carrying >=1 kept tag.
 
-Design decisions (2026-08-10, with Naveen):
-  * Model = models/layer2_tags_v3 (round-1). It beat the round-2 retrains (v3b/v3c/v3d) on the kept
-    tag set; the rule-broadening experiments regressed the shared encoder. v3 is a 17-head model
-    (its thresholds.json carries the head order, incl. identity_retirement at 15); we map heads by
-    that file, so alignment is exact.
-  * Kept tags = the 12 with gold-test F1 >= 0.65. Dropped: exercise_coping, substance_use,
-    trauma_ptsd, exercise_dependence (all < 0.65). Dropping is output-only -- no retrain.
-  * Final corpus = matched arm only, filtered to >=1 kept tag (multi-label ok). Every row keeps its
-    p_<tag> probability so users can re-threshold.
-  * The control/baseline arm is written separately (control_baseline.csv) for base-rate comparison.
-
-Usage:
-  .venv/Scripts/python.exe code/tag_corpus_final.py [--model models/layer2_tags_v3]
+Design decisions (updated 2026-08-18):
+  * Model = models/layer2_tags_v3b. The broadened-rule retrain beats round 1 on the pooled
+    metrics (micro F1 0.79 vs 0.76, macro 0.77 vs 0.73) and lifts the weakest heads sharply
+    (exercise_dependence 0.20 -> 0.73, trauma_ptsd 0.48 -> 0.63). Head order is read from its
+    thresholds.json so alignment is exact.
+  * ALL 16 tags are released, with their per-tag precision, recall, F1 and inter-rater kappa,
+    rather than filtered to a quality bar. A single global F1 cutoff would silently decide for
+    the user which constructs are usable; for subjective constructs of this kind the per-tag
+    figures are the honest interface, and the reviewer preference is explicitly against a hard
+    0.8 gate. Users who want a stricter subset can threshold on the published table.
+  * Final corpus = matched arm, filtered to comments carrying >=1 tag (multi-label). Every row
+    keeps its p_<tag> probability so users can re-threshold.
 """
 import csv, json, os, sys, time
 import torch
@@ -26,16 +25,18 @@ def arg(flag, default=None, cast=None):
     v = sys.argv[sys.argv.index(flag) + 1]
     return cast(v) if cast else v
 
-MODEL = arg("--model", "models/layer2_tags_v3")
+MODEL = arg("--model", "models/layer2_tags_v3b")
 INP = arg("--in", "data/classified/final_dataset.csv")
-OUT = arg("--out", "data/classified/final_dataset_tagged.csv")
+OUT = arg("--out", "data/classified/stride_release.csv")
 CTRL_OUT = arg("--control-out", "data/classified/control_baseline.csv")
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# The 12 tags that passed F1 >= 0.65 on gold-test (v3). Order = descending F1, for readability.
-KEEP = ["anxiety", "depression", "self_harm_suicide", "burnout_motivation", "help_seeking",
-        "loneliness_isolation", "body_image_eating", "sleep", "stress_pressure",
-        "adhd_neurodivergence", "performance_psych", "injury_distress"]
+# All 16 released tags, ordered by gold-test F1 on v3b for readability. No quality filter is
+# applied here; see the module docstring.
+KEEP = ["depression", "anxiety", "self_harm_suicide", "loneliness_isolation", "help_seeking",
+        "adhd_neurodivergence", "burnout_motivation", "body_image_eating", "sleep",
+        "stress_pressure", "exercise_dependence", "exercise_coping", "performance_psych",
+        "substance_use", "trauma_ptsd", "injury_distress"]
 
 def main():
     thr = json.load(open(os.path.join(MODEL, "thresholds.json"), encoding="utf-8"))
@@ -43,8 +44,9 @@ def main():
     keep_idx = {t: order.index(t) for t in KEEP}  # exact head index per kept tag
     print(f"[final] model {MODEL} on {DEVICE} | heads {len(order)} | keeping {len(KEEP)} tags",
           flush=True)
-    print(f"[final] dropped (F1<0.65): {[t for t in order if t not in KEEP and t!='identity_retirement']}",
-          flush=True)
+    missing = [t for t in KEEP if t not in order]
+    if missing:
+        raise SystemExit(f"[final] tags absent from {MODEL}/thresholds.json: {missing}")
 
     tok = AutoTokenizer.from_pretrained(MODEL)
     model = AutoModelForSequenceClassification.from_pretrained(MODEL).to(DEVICE).eval()

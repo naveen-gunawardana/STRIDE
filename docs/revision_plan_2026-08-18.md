@@ -213,3 +213,62 @@ About a day.
 
 Steps 1–4 are roughly two days and produce a draft that answers every actionable comment. Step 6 is
 what moves it from a competent resource paper to one with findings.
+
+
+---
+
+## 8. Round-2 status (2026-08-18, later)
+
+Completed since this plan was written:
+
+- **§3.1 confidence intervals** — done. `code/fig_tag_ci.py` adds 95% Wilson bands to every
+  per-tag monthly series, Table 6 now carries adjusted CIs, and Figure 4 promotes four themes.
+- **§3.4 joint eval on v3b** — done. micro P 0.76 / R 0.83 / F1 0.79 (n=580); new §5.3.
+- **§5 Layer 1 kappa** — done to the Layer-2 design. `code/metrics_interrater_l1.py`. Full
+  overlap n=2,502: mh 0.809, sport 0.861, **relevance 0.819**. Stratified 20% (n=500): 0.809,
+  0.815, 0.849. The AND-ed relevance kappa is new; the paper previously reported only the two
+  dimensions.
+- **§4.3 corpus name** — STRIDE adopted. A search of the mental-health and sports NLP dataset
+  literature found no existing corpus of that name (Microsoft's STRIDE threat model and several
+  clinical trials use the acronym in unrelated fields).
+- **#7 tag_corpus_final.py** — reconciled to `models/layer2_tags_v3b` and to all 16 tags, with
+  the F1>=0.65 filter removed. Filtering by a global cutoff conflicts with the reviewer position
+  that ~0.6 F1 is acceptable for subjective constructs, and with releasing per-tag figures.
+- **§3.2 athlete-specificity** — done, and it changed a headline. See below.
+
+### The ADHD finding needed the baseline, and survived it
+
+`code/vocab_baseline.py` measures each theme's surface vocabulary across all 1,393,421 comments
+in the same 19 communities (both arms, 2018-2022, the window where the control arm exists), then
+indexes it against the tagged series.
+
+| theme | community vocab %/yr | vocab idx | tagged idx | excess |
+|---|---|---|---|---|
+| adhd_neurodivergence | +11.67 | 143 | 196 | **1.37** |
+| self_harm_suicide | -12.16 | 64 | 79 | 1.23 |
+| anxiety | -3.44 | 78 | 88 | 1.13 |
+| help_seeking | +4.37 | 111 | 122 | 1.09 |
+| depression | -6.31 | 73 | 66 | 0.89 |
+| loneliness_isolation | -2.02 | 88 | 72 | 0.81 |
+| performance_psych | -10.41 | 49 | 117 | 2.40 (artefact, see paper §6.6) |
+
+ADHD is the only theme that clearly outpaces its own community. Everything else tracks community
+vocabulary, so those tagged trends describe the corpus rather than athletes. This is now §6.6.
+
+**A first pass got this badly wrong and is worth recording.** Pooling both arms across all 72
+months put the 2023 numerator over a denominator missing the control arm, inflating every 2023
+vocabulary rate roughly threefold and making every theme look "inherited, attenuated" with excess
+ratios near 0.4. Restricting to the 60 months where both arms exist reversed the conclusion for
+ADHD. Third instance of the same bug class in this project: check what is in the denominator.
+
+## 9. Still open
+
+- **Venue** (§1) — unresolved and still the gating decision.
+- **ISAAC DUA** — §7 now describes a full release per the author decision, with a TODO flagging
+  that the agreement as written restricts redistribution to third parties and needs sign-off from
+  the corpus owners.
+- **§3.2 deepening** — partly done via §6.6; the "unique empirical findings" ask is now narrower
+  and more honest, but the paper has one athlete-specific temporal finding rather than several.
+- **Related work comparator table** (§2 TODO in the paper).
+- **Sleep and substance_use validation** (§6 above) — still required before the
+  literature-comparison analysis can be published.

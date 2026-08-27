@@ -1,0 +1,104 @@
+{
+  "n_comments": 1393421,
+  "n_months": 60,
+  "themes": {
+    "adhd_neurodivergence": {
+      "community_vocab_trend": {
+        "pct_per_year": 11.670701114689109,
+        "ci_low": 10.10239456766353,
+        "ci_high": 13.261346734675827,
+        "p": 8.017866122086166e-53
+      },
+      "vocab_index_2023": 142.67659068511887,
+      "tagged_index_2023": 195.5882067985526,
+      "excess_ratio": 1.3708500172267741,
+      "reading": "athlete-specific",
+      "vocab_rate_2018_pct": 0.6128461204318745,
+      "vocab_rate_2023_pct": 0.8743879507782162
+    },
+    "help_seeking": {
+      "community_vocab_trend": {
+        "pct_per_year": 4.368836552410449,
+        "ci_low": 3.8292349994585972,
+        "ci_high": 4.911242419926953,
+        "p": 8.380847274141328e-59
+      },
+      "vocab_index_2023": 111.07777666004893,
+      "tagged_index_2023": 121.50603623769294,
+      "excess_ratio": 1.0938825018937808,
+      "reading": "tracks community",
+      "vocab_rate_2018_pct": 4.98391715782795,
+      "vocab_rate_2023_pct": 5.536024369493988
+    },
+    "depression": {
+      "community_vocab_trend": {
+        "pct_per_year": -6.310563588237949,
+        "ci_low": -6.770247865083634,
+        "ci_high": -5.848612764184535,
+        "p": 9.34807642338905e-149
+      },
+      "vocab_index_2023": 73.33885173468343,
+      "tagged_index_2023": 65.58930940444607,
+      "excess_ratio": 0.8943323743563271,
+      "reading": "tracks community",
+      "vocab_rate_2018_pct": 6.5597218557168535,
+      "vocab_rate_2023_pct": 4.810824685971808
+    },
+    "performance_psych": {
+      "community_vocab_trend": {
+        "pct_per_year": -10.414724442592982,
+        "ci_low": -11.933135995098887,
+        "ci_high": -8.870133081496922,
+        "p": 1.865439897402698e-36
+      },
+      "vocab_index_2023": 48.512091906131275,
+      "tagged_index_2023": 116.63495628549865,
+      "excess_ratio": 2.40424503876646,
+      "reading": "athlete-specific",
+      "vocab_rate_2018_pct": 0.8404269078937839,
+      "vocab_rate_2023_pct": 0.4077086739612897
+    },
+    "anxiety": {
+      "community_vocab_trend": {
+        "pct_per_year": -3.4418794011935816,
+        "ci_low": -3.9807473602515464,
+        "ci_high": -2.89998727073959,
+        "p": 1.367533660568385e-34
+      },
+      "vocab_index_2023": 78.13291109820116,
+      "tagged_index_2023": 88.01346234251135,
+      "excess_ratio": 1.1264582505046028,
+      "reading": "tracks community",
+      "vocab_rate_2018_pct": 4.8312542922557675,
+      "vocab_rate_2023_pct": 3.7747996210962267
+    },
+    "self_harm_suicide": {
+      "community_vocab_trend": {
+        "pct_per_year": -12.162696969100061,
+        "ci_low": -12.953218016273748,
+        "ci_high": -11.364996753302513,
+        "p": 6.329918446024032e-174
+      },
+      "vocab_index_2023": 64.36740655040414,
+      "tagged_index_2023": 79.06113338528255,
+      "excess_ratio": 1.2282789943287866,
+      "reading": "tracks community",
+      "vocab_rate_2018_pct": 2.0665490293146207,
+      "vocab_rate_2023_pct": 1.3301840152623723
+    },
+    "loneliness_isolation": {
+      "community_vocab_trend": {
+        "pct_per_year": -2.0157330431475606,
+        "ci_low": -2.966984369838277,
+        "ci_high": -1.0551562401676207,
+        "p": 4.291976842494035e-05
+      },
+      "vocab_index_2023": 88.1007567899691,
+      "tagged_index_2023": 71.68255515308294,
+      "excess_ratio": 0.8136428989364201,
+      "reading": "tracks community",
+      "vocab_rate_2018_pct": 1.3721515922312075,
+      "vocab_rate_2023_pct": 1.2088759370613047
+    }
+  }
+}

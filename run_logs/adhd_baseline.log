@@ -1,0 +1,26 @@
+[adhd] matched: 72 files
+  ... 20/72
+  ... 40/72
+  ... 60/72
+[adhd] control: 60 files
+  ... 20/60
+  ... 40/60
+  ... 60/60
+
+==========================================================================
+ADHD: ATHLETE-SPECIFIC OR PLATFORM-WIDE?
+==========================================================================
+scanned 1,474,439 comments across both arms, 72 months
+  ADHD words, all comments in the 19 subs       +30.63%/yr [+29.08, +32.19] ***
+    ... matched arm only                        +15.19%/yr [+13.94, +16.46] ***
+    ... control arm only                        -28.67%/yr [-37.91, -18.06] ***
+  Anxiety words, all comments (comparison)       +5.86%/yr [+5.35, +6.37] ***
+
+  ADHD word rate 0.599% (2018) -> 2.960% (2023)
+
+  Indexed to 2018 = 100:
+    tagged ADHD among relevant comments -> 212
+    ADHD words community-wide           -> 503
+    excess growth in the tagged series  -> 0.42x
+
+[adhd] wrote results_temporal/adhd_baseline.csv, adhd_baseline.json, fig5_adhd_baseline.png
