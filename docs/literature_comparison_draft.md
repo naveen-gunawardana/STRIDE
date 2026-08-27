@@ -10,8 +10,11 @@ one theme that dominates peer discourse (exercise as a coping mechanism) has ess
 counterpart in the prevalence literature at all. That pattern is a finding in its own right, and
 it is the finding this corpus is uniquely able to produce.
 
-**But the two largest gaps sit on our two weakest classifiers.** See §5 before building a paper on
-this.
+**UPDATE 2026-08-26: the recall audit in §5 has been run.** Both gaps shrink but survive. Sleep
+2.23% -> 3.50% corrected (gap 11.8x -> 7.5x); substance use 1.67% -> 3.46% (11.3x -> 5.4x). The
+wrong-sense kill rules were not the cause: only 14 and 12 comments corpus-wide had a cue vetoed.
+The misses sat in the abstention stratum. Full numbers in `results_temporal/audit_corrected.json`
+and in the paper (STRIDE_JMIRMH_v5, Results/Recall Audit). This section is superseded by the paper.
 
 ---
 

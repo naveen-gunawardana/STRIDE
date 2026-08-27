@@ -1,0 +1,64 @@
+{
+  "sleep": {
+    "tagged": 2888,
+    "tagged_pct": 2.231321950088851,
+    "corrected": 4533.214285714285,
+    "corrected_pct": 3.5024447853776444,
+    "corrected_pct_ci": [
+      2.7807505149006255,
+      5.018635055634216
+    ],
+    "literature_pct": 26.4,
+    "gap_before": 11.831551246537396,
+    "gap_after": 7.537592058614985,
+    "strata": {
+      "killed": {
+        "size": 14,
+        "sampled": 14,
+        "positives": 2
+      },
+      "abstain": {
+        "size": 22949,
+        "sampled": 70,
+        "positives": 5
+      },
+      "low_prob": {
+        "size": 40,
+        "sampled": 40,
+        "positives": 4
+      }
+    }
+  },
+  "substance_use": {
+    "tagged": 2160,
+    "tagged_pct": 1.6688557521440162,
+    "corrected": 4474.371428571429,
+    "corrected_pct": 3.4569817110186425,
+    "corrected_pct_ci": [
+      2.644883885455982,
+      4.787245847202133
+    ],
+    "literature_pct": 18.8,
+    "gap_before": 11.265203703703703,
+    "gap_after": 5.43827002036998,
+    "strata": {
+      "killed": {
+        "size": 12,
+        "sampled": 12,
+        "positives": 0
+      },
+      "abstain": {
+        "size": 17142,
+        "sampled": 70,
+        "positives": 9
+      },
+      "low_prob": {
+        "size": 322,
+        "sampled": 70,
+        "positives": 24
+      }
+    },
+    "corrected_pct_excl_tobacco": 3.218021876138232,
+    "gap_after_excl_tobacco": 5.8420982589965575
+  }
+}

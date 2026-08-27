@@ -1,0 +1,23 @@
+{
+  "n_relevant": 129430,
+  "tags": {
+    "sleep": {
+      "tagged": 2888,
+      "strata": {
+        "killed": 14,
+        "abstain": 22949,
+        "low_prob": 40
+      },
+      "sampled": 124
+    },
+    "substance_use": {
+      "tagged": 2160,
+      "strata": {
+        "killed": 12,
+        "abstain": 17142,
+        "low_prob": 322
+      },
+      "sampled": 152
+    }
+  }
+}
