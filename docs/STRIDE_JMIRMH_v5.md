@@ -215,7 +215,20 @@ A second finding is methodological and applies to any multi-community corpus. Th
 
 ### Comparison With Prior Work
 
-Prior social media mental health corpora have generally defined populations by the support community a person posts in and labelled a single condition per resource [5,6]. This corpus defines its population by activity rather than diagnosis and carries a 16-theme multi-label taxonomy, which is what makes the comparison in Table 3 possible: a single-label resource cannot show that one theme is over-represented relative to another.
+Table 7 places STRIDE against the mental health corpora it is most often compared with. Two differences carry the contribution. First, the label unit: the large Reddit mental health resources label users, identified by self-reported diagnosis statements, whereas STRIDE labels individual comments. A user-level resource can say how many people carry a condition; only an utterance-level one can say what proportion of what they write concerns a given theme, which is the quantity Table 3 compares against screening prevalence. Second, the population: existing resources define it by self-reported diagnosis or by the support community a person posts in, both of which pre-select for people already framing themselves as unwell. STRIDE defines it by athletic activity, so the corpus contains people who never describe themselves in clinical terms at all.
+
+| Corpus | Size | Span | Label unit | Labels | Multi-label | Population defined by |
+|---|---|---|---|---|---|---|
+| SMHD [17] | 20,406 diagnosed + 335,952 control users | 2006-2017 | User | 9 conditions | Per user | Self-reported diagnosis |
+| RSDD [18] | ~9,000 diagnosed users | to 2016 | User | Depression | No | Self-reported diagnosis |
+| CLPsych 2015 [19] | ~1,700 users | to 2015 | User | Depression, PTSD | No | Self-reported diagnosis |
+| Reddit MH Dataset [6] | 28 subreddits | 2018-2020 | Post | Subreddit as proxy | No | Support community |
+| GoEmotions [20] | 58,009 comments | 2005-2019 | Comment | 27 emotions | Yes | Random sample |
+| STRIDE (this work) | 129,834 comments + 890,781 control | 2018-2023 | Comment | 16 MH themes | Yes | Athletic activity |
+
+*Table 7. STRIDE against comparable mental health corpora. Sizes for the user-level resources count users rather than documents and are not directly comparable to comment counts.*
+
+The multi-label taxonomy matters for the same reason. A resource carrying one condition per release cannot show that one theme is over-represented relative to another, which is the form every finding in this paper takes.
 
 The prevalence literature compared against is almost entirely elite [1,2,7], whereas this corpus is predominantly recreational and amateur competitive. That limits generalisation but arguably increases applied relevance, since recreational and amateur athletes are both far more numerous and more likely to present to a practitioner without a sports medicine team around them. The failure to detect change around the Osaka and Biles withdrawals is consistent with the same scope argument: those events moved spectator communities, and spectator communities are the part of this corpus that discusses mental health least.
 
@@ -240,7 +253,7 @@ We release the corpus of 129,834 labelled comments with a probability and a bina
 - Gouttebarge V, Castaldelli-Maia JM, Gorczynski P, et al. Occurrence of mental health symptoms and disorders in current and former elite athletes: a systematic review and meta-analysis. Br J Sports Med. 2019;53(11):700-706.
 - Reardon CL, Hainline B, Aron CM, et al. Mental health in elite athletes: International Olympic Committee consensus statement (2019). Br J Sports Med. 2019;53(11):667-699.
 - Castaldelli-Maia JM, Gallinaro JGME, Falcao RS, et al. Mental health symptoms and disorders in elite athletes: a systematic review on cultural influencers and barriers to athletes seeking treatment. Br J Sports Med. 2019;53(11):707-721.
-- Athlete mental health help-seeking: a systematic review and meta-analysis of rates, barriers and facilitators. 2024.
+- Cosh SM, McNeil DG, Jeffreys A, Clark L, Tully PJ. Athlete mental health help-seeking: a systematic review and meta-analysis of rates, barriers and facilitators. Psychol Sport Exerc. 2024;71:102586. doi:10.1016/j.psychsport.2023.102586
 - De Choudhury M, Gamon M, Counts S, Horvitz E. Predicting depression via social media. Proc Int AAAI Conf Web Soc Media. 2013.
 - Low DM, Rumker L, Talkar T, Torous J, Cecchi G, Ghosh SS. Natural language processing reveals vulnerable mental health support groups and heightened health anxiety on Reddit during COVID-19. J Med Internet Res. 2020;22(10):e22635.
 - Rice SM, Purcell R, De Silva S, Mawren D, McGorry PD, Parker AG. The mental health of elite athletes: a narrative systematic review. Sports Med. 2016;46(9):1333-1353.
@@ -251,10 +264,15 @@ We release the corpus of 129,834 labelled comments with a probability and a bina
 - Prevalence of self-reported disordered eating and associated factors among athletes worldwide: a systematic review, meta-analysis and meta-regression. J Eat Disord. 2024;12:1.
 - Prevalence of risk for exercise dependence: a systematic review. Sports Med. 2019;49(2):191-205.
 - Exercise addiction in athletes: a systematic review of the literature. Int J Ment Health Addiction. 2021.
-- Sleep quality in elite athletes: systematic review evidence on insomnia symptom prevalence. Sports Med. 2017.
+- Gupta L, Morgan K, Gilchrist S. Does elite sport degrade sleep quality? A systematic review. Sports Med. 2017;47(7):1317-1333. doi:10.1007/s40279-016-0650-6
+- Han DH, McDuff D, Thompson D, Hitchcock ME, Reardon CL, Hainline B. Attention-deficit/hyperactivity disorder in elite athletes: a narrative review. Br J Sports Med. 2019;53(12):741-745. doi:10.1136/bjsports-2019-100713
+- Cohan A, Desmet B, Yates A, Soldaini L, MacAvaney S, Goharian N. SMHD: a large-scale resource for exploring online language usage for multiple mental health conditions. Proc COLING. 2018:1485-1497.
+- Yates A, Cohan A, Goharian N. Depression and self-harm risk assessment in online forums. Proc EMNLP. 2017:2968-2978.
+- Coppersmith G, Dredze M, Harman C, Hollingshead K, Mitchell M. CLPsych 2015 shared task: depression and PTSD on Twitter. Proc CLPsych Workshop at NAACL. 2015:31-39.
+- Demszky D, Movshovitz-Attias D, Ko J, Cowen A, Nemade G, Ravi S. GoEmotions: a dataset of fine-grained emotions. Proc ACL. 2020:4040-4054.
 - Hemmatian B, Kurdi B. The Illinois Social Attitudes Aggregate Corpus [Computer software]. GitHub; 2025. https://github.com/BabakHemmatian/Illinois_Social_Attitudes
 - Ratner A, Bach SH, Ehrenberg H, Fries J, Wu S, Re C. Snorkel: rapid training data creation with weak supervision. Proc VLDB Endow. 2017;11(3):269-282.
-*References recalled and partially web-verified; every entry requires checking against the primary text before submission, and JMIR requires full author lists and DOIs.*
+*References 1-3, 4, 6, 8-11, 15-17 and 20 verified against primary records; 12-14, 18 and 19 still need author lists and DOIs confirmed before submission.*
 
 ## Multimedia Appendices
 
