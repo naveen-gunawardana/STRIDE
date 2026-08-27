@@ -1,4 +1,4 @@
-<!-- Mirror of docs/AMHC_paper_draft_v2.docx, generated for git diffing. Edit the .docx
+<!-- Mirror of docs/paper/AMHC_paper_draft_v2.docx, generated for git diffing. Edit the .docx
      (or the generator) and regenerate; do not hand-edit this file. -->
 
 # AMHC: A Reddit Corpus for Text-Based Identification of
@@ -178,7 +178,7 @@ This section is both a demonstration of what the resource supports and a warning
 
 ### 6.1 Volume and the crude rate
 
-![figure](results_temporal/fig1_volume_and_rate.png)
+![figure](../../results_temporal/fig1_volume_and_rate.png)
 
 *Figure 1. Monthly volume and the crude relevance rate with 95% Wilson intervals. The control arm covers 2018-2022 only. Circles mark months whose rate deviates from a 13-month centred median by more than 2.5 robust standard deviations.*
 
@@ -186,7 +186,7 @@ Raw monthly counts of athlete mental-health comments are close to useless on the
 
 ### 6.2 The crude rate is flat for the wrong reason
 
-![figure](results_temporal/fig3_composition.png)
+![figure](../../results_temporal/fig3_composition.png)
 
 *Figure 3. Top: the mix of communities posting each month. Bottom: the crude rate against the same corpus standardised to a fixed community mix, with linear fits. The two series are computed from identical data and disagree in sign.*
 
@@ -219,7 +219,7 @@ We report this rather than dropping it. The most likely explanation is scope. Th
 
 ### 6.5 Per-tag trends
 
-![figure](results_temporal/fig2_tag_trends.png)
+![figure](../../results_temporal/fig2_tag_trends.png)
 
 *Figure 2. Share of relevant comments carrying each tag, by month. Small multiples rather than 16 series on one axis. These are crude series; Table 6 gives the adjusted numbers.*
 

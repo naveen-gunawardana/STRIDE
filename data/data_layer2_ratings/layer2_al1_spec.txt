@@ -2,7 +2,7 @@
 # Drawn from the r3a model's own confusion on the five weakest tags (injury_distress,
 # performance_psych, exercise_coping, body_image_eating, help_seeking), three bands per tag:
 # uncertain (near threshold), confident-positive (finds FPs), cue-but-quiet (finds FNs).
-# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Rater: Claude (Opus 5), rubric docs/methods/layer2_tag_rubric.md v1, blinded text only.
 # Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
 1: inj?
 2: help

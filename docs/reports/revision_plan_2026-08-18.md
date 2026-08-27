@@ -1,7 +1,7 @@
 # Revision plan — Babak's review of "ai paper version 2"
 
 **Compiled 2026-08-18.** Source: Babak's comment thread on the shared draft (Aug 17 and Aug 18),
-plus Naveen's accepted copyedits. Working doc: `docs/AMHC_paper_draft_v2.docx` / `.md`.
+plus Naveen's accepted copyedits. Working doc: `docs/paper/AMHC_paper_draft_v2.docx` / `.md`.
 
 ---
 
@@ -43,7 +43,7 @@ stands as-is. **The joint eval must be re-run on v3b** (~15 min).
 
 Babak refers twice to "a regular CS conference audience" and asks for the writing to be retargeted
 accordingly. That conflicts with the JMIR Mental Health restructure in
-`docs/AMHC_paper_JMIRMH_v3.docx`, written on the reasoning that the paper contains no CS methods
+`docs/paper/AMHC_paper_JMIRMH_v3.docx`, written on the reasoning that the paper contains no CS methods
 advance.
 
 Both cannot hold at once. This needs deciding at the next meeting, because it determines whether
@@ -182,7 +182,7 @@ Whichever is chosen, expand it on first use in both the abstract and the introdu
   rewording.
 - **Venue** (§1). Determines the shape of the rest of the rewrite.
 - **Whether the literature comparison becomes the paper's spine.**
-  `docs/literature_comparison_draft.md` shows sleep and substance use are roughly 12x quieter in
+  `docs/methods/literature_comparison_draft.md` shows sleep and substance use are roughly 12x quieter in
   peer discourse than in screening meta-analyses, and exercise-as-coping has no clinical
   counterpart at all. That is the strongest available candidate for Babak's "unique empirical
   findings that could not be achieved without your corpus." Caveat: the two largest gaps sit on the

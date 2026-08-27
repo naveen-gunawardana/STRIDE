@@ -171,7 +171,7 @@ substance_use (0.63), trauma_ptsd (0.48), exercise_dependence (0.20) — leaving
 - **Final corpus: `final_dataset_tagged.csv` = 105,206 comments** (matched arm, filtered to ≥1 of the
   12 tags, multi-label; the 24,628 relevant-but-untagged are held out). Control arm written separately
   as `control_baseline.csv` for base-rate comparison. Built by `code/tag_corpus_final.py`.
-- Full stats now in the paper draft (`docs/AMHC_paper_draft_v2.{md,docx}`), Tables 1–3.
+- Full stats now in the paper draft (`docs/paper/AMHC_paper_draft_v2.{md,docx}`), Tables 1–3.
 
 ## 6. Standing limitations (unchanged, worth restating)
 
@@ -195,5 +195,5 @@ substance_use (0.63), trauma_ptsd (0.48), exercise_dependence (0.20) — leaving
   matched-vs-baseline separation the wrong way (48× → 39×); the ~1,000 extra baseline-arm flags need
   an audit before any separation figure is quoted.
 
-*Full technical detail + reasoning: `docs/layer2_tags_process_2026-07-25.md` §10, `docs/layer2_tag_rubric.md`
+*Full technical detail + reasoning: `docs/methods/layer2_tags_process_2026-07-25.md` §10, `docs/methods/layer2_tag_rubric.md`
 (v3 tag definitions), `experiments/trials_log.md` (row L2v3-1).*

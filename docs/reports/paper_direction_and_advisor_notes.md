@@ -6,8 +6,8 @@ Layer-1 build through the current paper-planning phase.
 This file is the **intent** record — where the project is going, what venue it targets, and what
 Babak asked for. It complements the **execution** records:
 
-- `docs/relevance_layer1_process.md` / `docs/relevance_layer1_methods.md` — Layer 1
-- `docs/layer2_tags_process_2026-07-25.md` / `docs/layer2_tag_rubric.md` — Layer 2
+- `docs/methods/relevance_layer1_process.md` / `docs/methods/relevance_layer1_methods.md` — Layer 1
+- `docs/methods/layer2_tags_process_2026-07-25.md` / `docs/methods/layer2_tag_rubric.md` — Layer 2
 - `experiments/trials_log.md` — one row per run
 - `ISAAC_intro_working_notes.md` — the sibling BRM resource-paper template from the same lab
 
@@ -336,9 +336,9 @@ to Overleaf. **Look at example papers. Cite things.**
 
 `[READY]` — every one of these five has a source already written:
 source/filtering and the LLM-vs-scalability justification are in
-`docs/relevance_layer1_process.md`; descriptive stats are in `docs/layer2_tags_process_2026-07-25.md`
-§1 and §7; labeling is `docs/layer2_tag_rubric.md`; the per-tag performance table is in
-`docs/meeting_report_2026-08-05_layer2_expansion.md` §3b.
+`docs/methods/relevance_layer1_process.md`; descriptive stats are in `docs/methods/layer2_tags_process_2026-07-25.md`
+§1 and §7; labeling is `docs/methods/layer2_tag_rubric.md`; the per-tag performance table is in
+`docs/reports/meeting_report_2026-08-05_layer2_expansion.md` §3b.
 
 ### Metric definitions to include
 

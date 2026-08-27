@@ -144,6 +144,6 @@ full corpus tagged; every step documented and reproducible; failures recorded, n
 
 ---
 
-*Full technical detail: `docs/relevance_layer1_process.md` (Layer 1), `docs/layer2_tags_process_2026-07-25.md`
-(Layer 2), `experiments/trials_log.md` (every run). Rubrics: `docs/relevance_layer1_methods.md`,
-`docs/layer2_tag_rubric.md`.*
+*Full technical detail: `docs/methods/relevance_layer1_process.md` (Layer 1), `docs/methods/layer2_tags_process_2026-07-25.md`
+(Layer 2), `experiments/trials_log.md` (every run). Rubrics: `docs/methods/relevance_layer1_methods.md`,
+`docs/methods/layer2_tag_rubric.md`.*

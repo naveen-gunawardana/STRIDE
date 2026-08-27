@@ -30,7 +30,7 @@ N_RELEVANT = 129430
 # Published prevalence for the same construct, for the comparison the paper makes.
 LIT = {"sleep": 26.4, "substance_use": 18.8}
 
-# Positive ids assigned by reading each blinded sample against docs/layer2_tag_rubric.md.
+# Positive ids assigned by reading each blinded sample against docs/methods/layer2_tag_rubric.md.
 LABELS = {
     "sleep": {5, 51, 14, 67, 88, 61, 118, 39, 98, 89, 29},
     "substance_use": {108, 72, 112, 23, 101, 143, 85, 60, 96, 121, 92, 55, 107, 149,

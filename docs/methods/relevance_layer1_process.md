@@ -4,8 +4,8 @@
 diagnosed the ceiling, and how we broke it. Written to record the **reasoning and the failures**,
 not just the final number (BRM-style methods reporting). Newest developments appended.*
 
-Companion files: `experiments/trials_log.md` (one row per run), `docs/relevance_layer1_methods.md`
-(provenance), `docs/OVERNIGHT_REPORT.md` (exec summary).
+Companion files: `experiments/trials_log.md` (one row per run), `docs/methods/relevance_layer1_methods.md`
+(provenance), `docs/reports/OVERNIGHT_REPORT.md` (exec summary).
 
 ---
 
@@ -137,7 +137,7 @@ when my parents are at the game"* or *"I have confidence issues shooting"* were 
 mental health. The old rubric treated sports/performance psychology as skill talk, not mental
 health. **Research decision:** for an athlete population, performance struggles (confidence, nerves,
 choking, pressure/expectations) are how many athletes first experience mental-health difficulty and
-can signal a larger issue — so they should count. `mh` was widened (see `docs/mh_rubric_broad.md`).
+can signal a larger issue — so they should count. `mh` was widened (see `docs/methods/mh_rubric_broad.md`).
 
 **Process:** relabeled all 2,808 comments (train + held-out) with the broadened rubric via a
 47-agent labeling workflow, then combined by **union** (mh = old-positive OR new-positive) — a

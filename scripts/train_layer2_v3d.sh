@@ -2,7 +2,7 @@
 # v3d: selective broadening (exercise_dependence only). Wait for silver regen, then retrain + eval.
 # Batch 16 throughout, so v3d vs v3c isolates the substance/trauma broadening removal.
 set -u
-cd "C:/Users/navee_xqu8e3o/OneDrive/Documents/programming/AM"
+cd "$(dirname "$0")/.."
 PY=.venv/Scripts/python.exe
 
 echo "[pipe] waiting for selective silver regen ..."

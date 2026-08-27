@@ -2,7 +2,7 @@
 # v3c: same broadened rules/silver as v3b, but batch 16 (v3b used 32 and regressed across tags).
 # Isolates the batch-size variable: stage-1 (silver+gold) -> stage-2 (gold-only) -> eval.
 set -u
-cd "C:/Users/navee_xqu8e3o/OneDrive/Documents/programming/AM"
+cd "$(dirname "$0")/.."
 PY=.venv/Scripts/python.exe
 
 echo "[pipe] STAGE 1: silver+gold from DAPT, batch 16 ..."

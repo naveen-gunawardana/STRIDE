@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "C:/Users/navee_xqu8e3o/OneDrive/Documents/programming/AM"
+cd "$(dirname "$0")/.."
 PY=./.venv/Scripts/python.exe
 echo "===== ARM 1/3: matched 2018-2022 ====="
 $PY code/classify_corpus.py "comments/2018-2022/MS_comments_2018_2022/MS_comments_2018_2022/matched" data/classified/matched_2018_2022

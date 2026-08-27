@@ -1,7 +1,7 @@
 # Temporal Analysis — Process & Results
 
-**Run 2026-08-14.** Companion to `docs/relevance_layer1_process.md` and
-`docs/layer2_tags_process_2026-07-25.md`, same intent: record the reasoning and the failures so
+**Run 2026-08-14.** Companion to `docs/methods/relevance_layer1_process.md` and
+`docs/methods/layer2_tags_process_2026-07-25.md`, same intent: record the reasoning and the failures so
 the results section can be written from this file.
 
 Scripts: `code/temporal_analysis.py`, `code/rate_adjusted.py`, `code/subreddit_composition.py`,

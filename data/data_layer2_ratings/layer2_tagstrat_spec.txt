@@ -1,5 +1,5 @@
 # Layer-2 gold labels -- THEME-stratified sample (30/tag via high-recall cues + 30 cue-free), n=330
-# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Rater: Claude (Opus 5), rubric docs/methods/layer2_tag_rubric.md v1, blinded text only.
 # Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
 1: anx,cope,str?
 2: bur

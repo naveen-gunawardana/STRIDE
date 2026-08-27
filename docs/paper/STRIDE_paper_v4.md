@@ -1,4 +1,4 @@
-<!-- Mirror of docs/STRIDE_paper_v4.docx for git diffing. -->
+<!-- Mirror of docs/paper/STRIDE_paper_v4.docx for git diffing. -->
 
 # STRIDE: A Reddit Corpus for Text-Based Identification of Mental Health Concerns in Athletes
 
@@ -172,7 +172,7 @@ This section demonstrates what the resource supports and, in one respect, how it
 
 ### 6.1 Volume and the crude rate
 
-![figure](results_temporal/fig1_volume_and_rate.png)
+![figure](../../results_temporal/fig1_volume_and_rate.png)
 
 *Figure 1. Monthly volume and the crude relevance rate with 95% Wilson intervals. The control arm covers 2018-2022 only. Circles mark months whose rate deviates from a 13-month centred median by more than 2.5 robust standard deviations.*
 
@@ -180,7 +180,7 @@ Raw monthly counts of athlete mental-health comments move with platform volume, 
 
 ### 6.2 Community composition and the within-community trend
 
-![figure](results_temporal/fig3_composition.png)
+![figure](../../results_temporal/fig3_composition.png)
 
 *Figure 3. Top: the mix of communities posting each month. Bottom: the crude rate against the same corpus standardised to a fixed community mix, with linear fits. Both series are computed from identical data.*
 
@@ -213,7 +213,7 @@ The most likely explanation is scope. This corpus is dominated by people writing
 
 ### 6.5 Per-tag trends
 
-![figure](results_temporal/fig4_headline_tags.png)
+![figure](../../results_temporal/fig4_headline_tags.png)
 
 *Figure 4. The four themes carrying a reported finding, with 95% Wilson intervals and linear fits. Full 16-panel version with intervals in Appendix A.*
 
@@ -262,7 +262,7 @@ A theme's share can rise among mental-health comments for two different reasons:
 
 *Table 7. Community-wide vocabulary trend against the tagged series, 2018-2022, both arms pooled (n = 1,393,421). Index: 2018 = 100. The tagged index is the crude series, so it should be read alongside the composition-adjusted column of Table 6.*
 
-![figure](fig5_vocab_baseline.png)
+![figure](../../results_temporal/fig5_vocab_baseline.png)
 
 *Figure 5. Four themes indexed to 2018, tagged series against community-wide vocabulary.*
 
@@ -313,6 +313,6 @@ The corpus is built from public Reddit comments. Author names are removed from t
 - Rice, S. M., et al. (2016). The mental health of elite athletes: a narrative systematic review. Sports Medicine, 46(9), 1333-1353.
 ## Appendix A. All 16 themes over time
 
-![figure](results_temporal/fig2_tag_trends_ci.png)
+![figure](../../results_temporal/fig2_tag_trends_ci.png)
 
 *Figure A1. Share of relevant comments carrying each of the 16 themes, by month, with 95% Wilson intervals. Median interval half-width ranges from 0.51 percentage points (trauma_ptsd) to 2.10 (anxiety).*

@@ -1,10 +1,10 @@
 # Layer-2 Tag Classifier — Process & Diagnostic Log
 
-**Started 2026-07-25.** Companion to `docs/relevance_layer1_process.md`. Same BRM-style intent:
+**Started 2026-07-25.** Companion to `docs/methods/relevance_layer1_process.md`. Same BRM-style intent:
 record the **reasoning and the failures**, not just the final number, so the methods section can be
 written from this file.
 
-Companions: `docs/layer2_tag_rubric.md` (labeling rules), `experiments/trials_log.md` (one row per
+Companions: `docs/methods/layer2_tag_rubric.md` (labeling rules), `experiments/trials_log.md` (one row per
 run), `data/data_layer2_ratings/` (the hand labels behind every metric).
 
 ---
@@ -80,7 +80,7 @@ Two facts shaped everything:
 
 **Response tags** — what is being done about it: `help_seeking`, `exercise_coping`
 
-Rubric: `docs/layer2_tag_rubric.md`, written in the same style as the Layer-1 rubric (decided
+Rubric: `docs/methods/layer2_tag_rubric.md`, written in the same style as the Layer-1 rubric (decided
 rules first, anchor examples, explicit ✗ cases, negation flips to NO, figurative usage is NO).
 
 **Considered and cut from v1** (recorded, not forgotten): `substance_use`, `loneliness_isolation`,
@@ -145,7 +145,7 @@ positives also demoted *"saved my life"* from high-precision to high-recall — 
 
 ## 4. Gold labeling — 610 comments, four samples, and why four
 
-All labeling followed `docs/layer2_tag_rubric.md` on **blinded text only** (no subreddit, author,
+All labeling followed `docs/methods/layer2_tag_rubric.md` on **blinded text only** (no subreddit, author,
 or date), matching the Layer-1 protocol. Provenance keys are written to `*_key.csv` and gitignored.
 
 | sample | n | how drawn | purpose |
@@ -463,7 +463,7 @@ tags** so off-taxonomy themes aren't forced into a wrong head or dropped.
 Added from the v1 cut-list plus one gap labeling had exposed: `substance_use`,
 `loneliness_isolation`, `sleep`, `trauma_ptsd`, `adhd_neurodivergence`, `identity_retirement`,
 `exercise_dependence`. Rubric definitions written in the same style (construct, ✓/✗, negation→NO) —
-see `docs/layer2_tag_rubric.md`.
+see `docs/methods/layer2_tag_rubric.md`.
 
 **Prevalence probe first** (silver HP-fire rate over 20k matched comments), to size the labeling and
 flag the rare ones — the same discipline as the rest of Layer 2:
@@ -576,4 +576,4 @@ composed) micro-F1 **0.80** with the gate rejecting 97% of labelled-irrelevant c
 corpus (`code/tag_corpus_final.py`) is `final_dataset_tagged.csv` = **105,206** matched comments
 carrying ≥1 of the 12 tags, with the control arm split out to `control_baseline.csv`. Note `v3` is a
 17-head model (identity_retirement at index 15); the tagger maps heads via `thresholds.json` so the
-12 kept tags (all at indices ≤14) align exactly. Full numbers in `docs/AMHC_paper_draft_v2.md`.
+12 kept tags (all at indices ≤14) align exactly. Full numbers in `docs/paper/AMHC_paper_draft_v2.md`.

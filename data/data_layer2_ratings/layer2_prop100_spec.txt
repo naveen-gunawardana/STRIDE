@@ -1,5 +1,5 @@
 # Layer-2 gold labels -- proportional (year x sport-family) stratified sample, n=100
-# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Rater: Claude (Opus 5), rubric docs/methods/layer2_tag_rubric.md v1, blinded text only.
 # Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
 1: body
 2: bur,perf

@@ -1,4 +1,4 @@
-<!-- Mirror of docs/AMHC_paper_JMIRMH_v3.docx for git diffing.
+<!-- Mirror of docs/paper/AMHC_paper_JMIRMH_v3.docx for git diffing.
      Edit the generator and regenerate; do not hand-edit. -->
 
 # What Athletes Say to Each Other Versus What Screening Instruments Find:
@@ -151,13 +151,13 @@ Exercise dependence provides a point of convergent validity. It is the theme whe
 
 ### Temporal Patterns
 
-![figure](results_temporal/fig1_volume_and_rate.png)
+![figure](../../results_temporal/fig1_volume_and_rate.png)
 
 *Figure 1. Monthly comment volume and crude relevance rate with 95% Wilson intervals. The control arm covers 2018-2022. Circles mark months deviating from a 13-month centred median by more than 2.5 robust SDs.*
 
 The crude relevance rate was flat across the study period (+0.18% per year, 95% CI -0.18 to +0.54, P=.32), as was the control arm (+0.33% per year, P=.74). This flat result is misleading. Community composition shifted substantially: r/xxfitness and r/Fitness each lost approximately 11 percentage points of volume share between the first and last twelve months, while r/tennis gained 5.1 and r/crossfit 2.9, and the effective number of communities rose from 2.6 to 6.7. Because community relevance rates range from 7.7% to 48.7%, this drift moves the pooled rate independently of any behavioural change.
 
-![figure](results_temporal/fig3_composition.png)
+![figure](../../results_temporal/fig3_composition.png)
 
 *Figure 2. Community composition by month (top) and the crude rate against the same corpus standardised to a fixed community mix (bottom), with linear fits. Both series derive from identical data.*
 
@@ -165,7 +165,7 @@ After adjustment for community, the relevance rate rose 4.36% per year (95% CI 3
 
 Seasonality was strong and stable (likelihood ratio 563.3, df=11, P<.001), with relevance odds peaking in August (OR 1.17 versus January) and lowest in May (OR 0.89). An interrupted time series at March 2020 showed a level shift of OR 1.21 (P<.001) that persisted after adjustment for composition (OR 1.18, P<.001). April 2020 was the largest single deviation in the series. Two events nominated a priori as landmark athlete mental health moments, Naomi Osaka's withdrawal from the French Open in May 2021 and Simone Biles's withdrawal from Olympic finals in July 2021, produced no detectable change (robust z=-0.02 and +0.74).
 
-![figure](results_temporal/fig2_tag_trends.png)
+![figure](../../results_temporal/fig2_tag_trends.png)
 
 *Figure 3. Monthly share of relevant comments carrying each theme.*
 

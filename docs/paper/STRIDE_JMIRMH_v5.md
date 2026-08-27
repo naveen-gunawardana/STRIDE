@@ -1,4 +1,4 @@
-<!-- Mirror of docs/STRIDE_JMIRMH_v5.docx for git diffing. -->
+<!-- Mirror of docs/paper/STRIDE_JMIRMH_v5.docx for git diffing. -->
 
 # What Athletes Tell Each Other Versus What Screening Instruments Find: The STRIDE Corpus of 129,834 Athlete Mental Health Comments
 
@@ -159,7 +159,7 @@ The audit also settled a scope question for the rubric. Fifteen of the 33 hand-l
 
 ### Temporal Patterns
 
-![figure](results_temporal/fig1_volume_and_rate.png)
+![figure](../../results_temporal/fig1_volume_and_rate.png)
 
 *Figure 1. Monthly comment volume and crude relevance rate with 95% Wilson intervals. The control arm covers 2018-2022.*
 
@@ -174,7 +174,7 @@ The crude relevance rate was flat across the study period (+0.18% per year, 95% 
 
 *Table 5. Binomial GLM on (month x community) cells, 583,658 comments.*
 
-![figure](results_temporal/fig3_composition.png)
+![figure](../../results_temporal/fig3_composition.png)
 
 *Figure 2. Community composition by month (top) and the crude rate against the same corpus standardised to a fixed community mix (bottom).*
 
@@ -197,7 +197,7 @@ A theme's share can rise among mental health comments because athletes increasin
 
 *Table 6. Community vocabulary trend against the tagged series, indexed to 2018 = 100. Excess is the tagged index divided by the vocabulary index.*
 
-![figure](results_temporal/fig5_vocab_baseline.png)
+![figure](../../results_temporal/fig5_vocab_baseline.png)
 
 *Figure 3. Four themes indexed to 2018, tagged series against community-wide vocabulary.*
 
@@ -280,6 +280,6 @@ We release the corpus of 129,834 labelled comments with a probability and a bina
 - Appendix 2: Weak-supervision rule definitions, including wrong-sense guards.
 - Appendix 3: Dataset datasheet, community list, and release licence.
 - Appendix 4: All 16 themes over time with 95% Wilson intervals.
-![figure](results_temporal/fig2_tag_trends_ci.png)
+![figure](../../results_temporal/fig2_tag_trends_ci.png)
 
 *Appendix Figure 4-1. Share of relevant comments carrying each of the 16 themes, by month, with 95% Wilson intervals.*

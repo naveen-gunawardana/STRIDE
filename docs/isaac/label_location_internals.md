@@ -1,6 +1,6 @@
 # `label_location` Internals
 
-This page documents the operational details of the `label_location` resource: its persistent caches, concurrency story, year-band scan knobs, per-post deduplication, and memory/disk budget. For the high-level role of `label_location` in the pipeline, see the [main README](README.md). For the meaning of `location` / `location_prob` / `contender_location` columns in the output, see [variable_list.md](variable_list.md).
+This page documents the operational details of the `label_location` resource: its persistent caches, concurrency story, year-band scan knobs, per-post deduplication, and memory/disk budget. For the high-level role of `label_location` in the pipeline, see the [main ISAAC README](https://github.com/BabakHemmatian/Illinois_Social_Attitudes/blob/main/README.md). For the meaning of `location` / `location_prob` / `contender_location` columns in the output, see [variable_list.md](variable_list.md).
 
 ## How the resource estimates a location
 
@@ -86,7 +86,7 @@ The cache lives on the shared filesystem and is reused across runs and groups, s
 ## Crash recovery and resume
 
 The output is written in source_row order via an incremental flush every `FLUSH_EVERY_N_RAW = 3` raw files scanned. When an author hits the per-spiral sampling cap, their rows are inferred and written immediately. A task killed mid-scan leaves a partial output CSV whose `source_row` column is monotonically increasing.
-On resubmission, `get_last_source_row` reads the partial output and the resource resumes from the first unwritten row. The `author_file_counts` cache holds whatever was scanned before the crash, so the resumed task does not re-scan files already covered. See [the Resumable Runs section of the main README](README.md#resumable-runs-and-the-source_row-column) for the cross-resource source_row resume mechanism.
+On resubmission, `get_last_source_row` reads the partial output and the resource resumes from the first unwritten row. The `author_file_counts` cache holds whatever was scanned before the crash, so the resumed task does not re-scan files already covered. See [the Resumable Runs section of the main ISAAC README](https://github.com/BabakHemmatian/Illinois_Social_Attitudes/blob/main/README.md#resumable-runs-and-the-source_row-column) for the cross-resource source_row resume mechanism.
 
 ## Known limitations
 

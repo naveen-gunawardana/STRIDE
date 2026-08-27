@@ -1,7 +1,7 @@
 # Layer-2 gold labels -- ACTIVE-LEARNING round 2, n=156
 # Drawn from the r4-e22 model's confusion on the four tags still under 0.8 after AL round 1:
 # injury_distress, performance_psych, body_image_eating, exercise_coping.
-# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Rater: Claude (Opus 5), rubric docs/methods/layer2_tag_rubric.md v1, blinded text only.
 # Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
 1: anx
 2: help,cope,bur

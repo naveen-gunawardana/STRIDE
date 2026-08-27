@@ -1,7 +1,7 @@
 # Draft analysis — how AMHC compares to the sports-psychology prevalence literature
 
 **Drafted 2026-08-14.** Intended as a candidate section for the paper (or, if the contrast holds
-up, as the paper's central framing). Companion to `docs/temporal_analysis_2026-08-14.md`.
+up, as the paper's central framing). Companion to `docs/methods/temporal_analysis_2026-08-14.md`.
 
 **Bottom line up front:** the contrast is large, and more usefully, it is *structured*. Peer
 discourse and clinical screening do not disagree at random. Two themes that screening instruments

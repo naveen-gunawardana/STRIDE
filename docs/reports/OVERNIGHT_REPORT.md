@@ -6,8 +6,8 @@ held-out **precision 0.90 / recall 0.80 / F1 0.85 / accuracy 0.87** (all ≥ 0.8
 (matched ~18% relevant vs baseline ~0.1%). See process doc §6a–6f for the full arc (domain-match
 breakthrough → broadening → sport fix → active-learning over-flag fix → rebalancing).
 
-> Full diagnostic narrative (ceiling → breakthrough → scope broadening): `docs/relevance_layer1_process.md`.
-> Broadened `mh` rubric: `docs/mh_rubric_broad.md`.
+> Full diagnostic narrative (ceiling → breakthrough → scope broadening): `docs/methods/relevance_layer1_process.md`.
+> Broadened `mh` rubric: `docs/methods/mh_rubric_broad.md`.
 
 ---
 
@@ -166,7 +166,7 @@ Both models now **discriminate** (the old `sport` was permissive; now P 0.76). G
 
 ## 10. Reproducibility
 
-- Trials log: `experiments/trials_log.md` · Methods & provenance: `docs/relevance_layer1_methods.md`
+- Trials log: `experiments/trials_log.md` · Methods & provenance: `docs/methods/relevance_layer1_methods.md`
 - Data: `data/data_relevance_ratings/comments/` (rated files, `sports_mh_dimensions.csv`, `holdout_labeled.csv`)
 - Models: `models/filter_relevance_{mh,sport,mental_health}/` · Splits: `models/train_relevance_data_split/`
 - Code: `code/train_relevance.py` (trainer), `code/eval_thresholds.py`, `code/eval_and_gate.py`, `code/eval_holdout_gate.py`; run logs in `run_logs/`

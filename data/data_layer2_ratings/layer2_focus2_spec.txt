@@ -3,7 +3,7 @@
 # too few to split into train/dev/test and still estimate recall. Note how many rows here are
 # bodybuilding slang ("suicide cut", "suicide grip") or fan hyperbole -- that is the tag's real
 # false-positive distribution and is exactly what the model needs to be evaluated against.
-# Rater: Claude (Opus 5), rubric docs/layer2_tag_rubric.md v1, blinded text only.
+# Rater: Claude (Opus 5), rubric docs/methods/layer2_tag_rubric.md v1, blinded text only.
 # Codes: dep anx str bur perf body inj sh help cope | none | trailing '?' = unclear (-> 'x')
 1: none
 2: body
