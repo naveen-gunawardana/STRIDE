@@ -1,0 +1,29 @@
+[joint] 424 relevant gold + 156 control negatives = 580 on cuda
+[joint] loading models ...
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 2644.14it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 2639.35it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|##########| 201/201 [00:00<00:00, 2022.55it/s]
+[joint] running gate ...
+[joint] gate recall on relevant: 1.000 | gate false-pass on irrelevant: 0.032
+
+[joint] running Layer 2 on gate-survivors ...
+
+===== JOINT (cascade) per-tag, n=580 =====
+  tag                         P      R     F1  gold+
+  anxiety                  0.86   0.90   0.88     92
+  depression               0.81   0.92   0.86     74
+  self_harm_suicide        0.82   0.95   0.88     19
+  burnout_motivation       0.65   0.90   0.75     29  <0.8
+  help_seeking             0.77   0.89   0.83     46  <0.8
+  loneliness_isolation     0.86   0.86   0.86     21
+  body_image_eating        0.72   0.76   0.74     58  <0.8
+  sleep                    0.84   0.70   0.76     23  <0.8
+  stress_pressure          0.71   0.73   0.72     33  <0.8
+  adhd_neurodivergence     0.68   0.95   0.79     20  <0.8
+  performance_psych        0.66   0.64   0.65     33  <0.8
+  injury_distress          0.60   0.58   0.59     26  <0.8
+
+  MICRO (joint, pooled)    0.76   0.83   0.79
+
+  Note: gate recall 1.00 caps joint recall -- a relevant comment the gate
+  drops loses all its tags. Compare joint micro-F1 to the Layer-2-only micro (0.76).
