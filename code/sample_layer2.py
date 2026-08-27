@@ -31,6 +31,7 @@ import csv, os, random, sys
 from collections import defaultdict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 csv.field_size_limit(2**31 - 1)
+import layer2_lexicon as L
 
 DATASET = "data/classified/final_dataset.csv"
 SEED = 20260725
@@ -46,9 +47,9 @@ FAMILY = {
     "tennis": "individual_skill", "climbing": "individual_skill",
     "Gymnastics": "individual_skill", "sportspsychology": "individual_skill",
 }
-TAGS = ["depression", "anxiety", "stress_pressure", "burnout_motivation", "performance_psych",
-        "body_image_eating", "injury_distress", "self_harm_suicide", "help_seeking",
-        "exercise_coping"]
+# Kept in sync with layer2_lexicon.TAGS so the v3 themes are drawn too; an earlier hardcoded
+# list covered only the original ten, which left the newer themes without enrichment.
+TAGS = list(L.TAGS)
 
 def family(sub):
     return FAMILY.get(sub, "individual_skill")

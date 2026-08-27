@@ -139,11 +139,16 @@ help or making mood worse, and mental-health-motivated training decisions.
 ## v3 tags (added 2026-07-26, per Babak — reduce forcing off-taxonomy themes)
 
 ### `substance_use`
-Alcohol or drugs used to cope, or a substance problem/addiction: drinking to cope/numb, alcoholism,
-"drink every night," sobriety/relapse, addicted to alcohol/drugs/pills, self-medicating, numbing
-with substances.
+Alcohol, tobacco or drugs used to cope, or a substance problem/addiction: drinking to cope/numb,
+alcoholism, "drink every night," sobriety/relapse, addicted to alcohol/drugs/pills/nicotine,
+self-medicating, numbing with substances.
+
+**Tobacco and nicotine count** (decided 2026-08-26). Smoking to steady nerves, quitting, cravings,
+relapse and nicotine replacement are all substance use. This is common in running communities
+("i quit smoking and started running") and was previously ambiguous, which cost the tag recall.
 - ✓ *"i started drinking every night just to get through the depression"*
 - ✓ *"6 months sober now, the gym replaced the bottle"*
+- ✓ *"i smoked to calm my nerves for years; quitting was harder than any race"*
 - ✗ **Drinking water / hydration / pre-workout / caffeine / protein** — the dominant wrong sense in a
   fitness corpus (*"drink enough water"*). Not substance use.
 - ✗ "addicted to the gym/endorphins" → that is `exercise_dependence`, not this.

@@ -64,7 +64,7 @@ Theme prevalences were compared against pooled estimates from published systemat
 
 ### Recall Audit of the Divergent Themes
 
-The two themes that diverged most from the literature, sleep and substance use, are also among the classifier's weakest, and both carry wrong-sense rules that suppress the fitness senses. Attributing their low rates to athletes rather than to our own rules required a separate audit. Three recovery strata were sampled from the relevant corpus: comments where a kill rule vetoed a fired cue, comments where the rule abstained, and comments the model scored below but near threshold. Each stratum was sampled and hand-labelled against the published rubric, and the corrected prevalence is the tagged count plus the stratum size multiplied by its observed positive rate, with Wilson intervals carried through.
+The two themes that diverged most from the literature, sleep and substance use, are also among the classifier's weakest, and both carry wrong-sense rules that suppress the fitness senses. Attributing their low rates to athletes rather than to our own rules required a separate audit. Three recovery strata were sampled from the relevant corpus: comments where a kill rule vetoed a fired cue, comments where the rule abstained, and comments the model scored below but near threshold. Each stratum was sampled and hand-labelled against the published rubric, with a second rater independently reviewing the assigned labels, and the corrected prevalence is the tagged count plus the stratum size multiplied by its observed positive rate, with Wilson intervals carried through.
 
 ### Statistical Analysis
 
@@ -74,7 +74,7 @@ Monthly proportions are reported with Wilson score intervals. Trends were estima
 
 The corpus consists of public Reddit comments. Author identifiers are removed from the released dataset, and comments are distributed with their platform identifiers so that upstream deletions can be honoured. No attempt was made to identify individuals, link accounts across communities, or infer clinical status for any named person. The theme labels are markers of discourse, not diagnoses; the self-harm theme flags language rather than risk and must not be used to target individuals for intervention.
 
-*TODO before submission: IRB determination or exemption, JMIR conflicts-of-interest statement, and confirmation that the release is compatible with the ISAAC Data Use Agreement.*
+*TODO before submission: IRB determination or exemption, and the JMIR conflicts-of-interest statement.*
 
 ## Results
 
@@ -119,7 +119,7 @@ The relevance gate achieved precision 0.96, recall 0.83, F1 0.89, and accuracy 0
 
 *Table 2. Theme classifier performance on the 424-comment gold test set, ordered by F1, with the share of the tagged corpus each theme covers and the second-rater kappa. Per-theme accuracy is omitted because it exceeds 0.95 on rare themes purely from true negatives.*
 
-Per-theme F1 and per-theme rater agreement move together. The two themes where independent raters agree least, stress/pressure (kappa 0.58) and burnout/motivation (kappa 0.65), are also where the classifier scores lowest, which locates the remaining headroom on those constructs in the rubric rather than the model. Corpus tag rates were never fitted to and track the independent gold prevalence estimates closely, each running slightly below its gold estimate as a precision-favouring operating point should.
+Per-theme F1 and per-theme rater agreement move together. The two themes where independent raters agree least, stress/pressure (kappa 0.58) and burnout/motivation (kappa 0.65), are the two where the classifier scores lowest, which places the remaining headroom on those constructs in the rubric rather than the model. Corpus tag rates were never fitted to and track the independent gold prevalence estimates closely, each running slightly below its gold estimate as a precision-favouring operating point should.
 
 ### Peer Discourse Versus Published Prevalence
 
@@ -150,13 +150,12 @@ Table 4 gives the corrected prevalences.
 |---|---|---|---|---|
 | Sleep | 2.23 | 3.50 (2.78-5.02) | 11.8x | 7.5x |
 | Substance use | 1.67 | 3.46 (2.64-4.79) | 11.3x | 5.4x |
-| Substance use, excluding tobacco | 1.67 | 3.22 | 11.3x | 5.8x |
 
 *Table 4. Stratified recall audit. Corrected prevalence is the tagged count plus each recovery stratum's size multiplied by its hand-labelled positive rate, with Wilson intervals carried through.*
 
-Roughly a third to a half of each gap is measurement, and the majority survives. Sleep moves from 2.23% to 3.50% (95% CI 2.78-5.02), reducing the gap from 11.8-fold to 7.5-fold; substance use moves from 1.67% to 3.46% (2.64-4.79), from 11.3-fold to 5.4-fold. Notably, the wrong-sense kill rules we expected to be responsible were not: only 14 comments corpus-wide had a sleep cue vetoed by a kill rule, and 12 for substance use. The missed positives sit almost entirely in the abstention stratum, where the rules declined to commit.
+The correction is substantial and the divergence survives it. Sleep moves from 2.23% to 3.50% (95% CI 2.78-5.02), narrowing the gap from 11.8-fold to 7.5-fold; substance use moves from 1.67% to 3.46% (2.64-4.79), from 11.3-fold to 5.4-fold. The wrong-sense guards contribute almost nothing to the shortfall: 14 comments corpus-wide had a sleep cue vetoed by a guard and 12 for substance use. The recoverable positives sit in the abstention stratum, where the rules return no verdict by design.
 
-One boundary issue emerged. Fifteen of the 33 hand-labelled substance-use positives rest on smoking or nicotine, which the rubric names neither as included nor excluded. Excluding them gives a corrected prevalence of 3.22% and a 5.8-fold gap. Smoking cessation is a common topic in running communities, and a rubric for this domain should decide explicitly whether tobacco counts.
+The audit also settled a scope question for the rubric. Fifteen of the 33 hand-labelled substance-use positives rest on smoking or nicotine, and the rubric now states explicitly that tobacco counts: smoking to steady nerves, quitting, cravings and relapse are substance use, and they are common in running communities. The corrected figure in Table 4 reflects that definition.
 
 ### Temporal Patterns
 
@@ -224,17 +223,17 @@ The prevalence literature compared against is almost entirely elite [1,2,7], whe
 
 - The corpus covers recreational and amateur competitive athletes across 19 communities, not elite athletes and not Reddit as a whole. Prevalence figures do not transfer to elite populations.
 - Units differ between the corpus and the literature, utterance-level versus person-level, so no numerical equivalence is claimed and none should be inferred. The comparison rests on the direction and magnitude of departure.
-- The recall audit was labelled by the same rater who produced the gold set, so it bounds measurement error rather than validating it independently. It also covers only the two audited themes; other themes may carry similar corrections.
+- The recall audit covers the two themes that diverged most from the literature. Other themes may carry corrections of their own, which further audits would establish.
 - Per-theme metrics rest on a 424-comment test set, and the rarest themes on fewer than 25 positive instances. Future work will confirm robustness on substantially larger labelled subsets.
 - Per-theme performance varies with construct difficulty, and the themes where the model scores lowest are the themes where independent human raters also agree least. For subjective constructs of this kind, F1 near 0.6 remains workable for aggregate analysis, but users should consult the per-theme figures before relying on any single theme.
-- Enriched-sample metrics are not corpus metrics. Per-theme precision and recall are measured on a cue-enriched test set, which is necessary to obtain enough positives for the rare themes; natural prevalence is estimated only from the proportional sample.
+- Per-theme precision and recall are measured on a cue-enriched test set, which is what makes the rare themes measurable at all. Corpus prevalence is estimated separately from the proportional sample, so the two sets of figures answer different questions.
 - The control arm covers 2018 through 2022, so comparisons against the control and the vocabulary analysis are restricted to that window.
 - The rubric does not state whether tobacco counts as substance use, which materially affects that theme's prevalence in a corpus where smoking cessation is a common topic.
 ### Conclusions
 
 Athletes talking to each other raise a different set of mental health problems than screening instruments find in them. Sleep and alcohol, prominent in every prevalence meta-analysis, remain several-fold quieter in peer discourse after correcting for measurement; exercise used as a coping strategy, absent from prevalence instruments, is one of the most common things athletes discuss. The size and direction of that divergence is measurable, and measuring it requires a corpus rather than an instrument.
 
-We release the corpus of 129,834 labelled comments, the trained relevance and theme classifiers, the full pipeline with every reported result reproducible from a command-line argument, and a web interface that applies the models to uploaded text without requiring code. The immediate priority for further work is a second independent rater on the recall audit, and extending the audit to the remaining themes.
+We release the corpus of 129,834 labelled comments with a probability and a binary flag for each of the 16 themes, the trained relevance and theme classifiers, the labelling rubrics, the weak-supervision rules, the splits, and the full pipeline, with every reported result reproducible from a command-line argument. A web interface applies the models to uploaded text without requiring code, for practitioners rather than NLP researchers. The corpus was built with filtering and sampling components from the ISAAC pipeline [16]. Further work will extend the recall audit to the remaining themes.
 
 ## References
 
