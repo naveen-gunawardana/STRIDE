@@ -79,7 +79,6 @@ docs/
   PLAN.md                     the original layered-classifier plan
   paper/                      manuscript lineage, v2 → v5, each .md mirroring its .docx
   methods/                    annotation rubrics and per-stage process records
-  reports/                    meeting reports, advisor notes, revision plan
   isaac/                      inherited ISAAC documentation and its figures
 experiments/            trials_log.md — every training run, including the negative results
 keywords/               keyword lists inherited from the ISAAC pipeline
@@ -165,9 +164,8 @@ The corpus is built from public Reddit comments. Author identifiers are removed 
 their platform identifiers so upstream deletions can be honoured. No attempt is made to identify
 individuals, link accounts across communities, or infer clinical status for any named person.
 
-**The theme labels are markers of discourse, not diagnoses.** The `self_harm_suicide` theme flags
-language rather than risk and must not be used to target individuals for intervention. Re-identification
-and cross-referencing against Reddit archives or APIs are prohibited under the ISAAC DUA.
+**The theme labels are markers of discourse, not diagnoses.** Re-identification and
+cross-referencing against Reddit archives or APIs are prohibited under the ISAAC DUA.
 
 ## Citation
 

@@ -5,7 +5,7 @@ diagnosed the ceiling, and how we broke it. Written to record the **reasoning an
 not just the final number (BRM-style methods reporting). Newest developments appended.*
 
 Companion files: `experiments/trials_log.md` (one row per run), `docs/methods/relevance_layer1_methods.md`
-(provenance), `docs/reports/OVERNIGHT_REPORT.md` (exec summary).
+(provenance).
 
 ---
 

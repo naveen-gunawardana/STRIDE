@@ -30,15 +30,6 @@ re-litigated later without re-running it.
 | `temporal_analysis_2026-08-14.md` | The composition-adjustment problem and how the trend models handle it |
 | `literature_comparison_draft.md` | The prevalence comparison that became the paper's spine |
 
-## `reports/` — meetings and progress
-| File | What it is |
-|---|---|
-| `revision_plan_2026-08-18.md` | Response to advisor review; the release blockers live in §4 |
-| `paper_direction_and_advisor_notes.md` | What the paper is meant to be; §3 sets out the four release channels |
-| `meeting_report_2026-08-05_layer2_expansion.md` | Layer-2 expansion to 16 themes |
-| `meeting_report_2026-07-26.md` | Layer-2 first results |
-| `OVERNIGHT_REPORT.md` | Layer-1 completion report |
-
 ## `isaac/` — inherited documentation
 STRIDE is built with filtering and sampling components from the
 [ISAAC](https://github.com/BabakHemmatian/Illinois_Social_Attitudes) pipeline. These documents
